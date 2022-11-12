@@ -17,7 +17,7 @@ export async function deleteRoster(id) {
 }
 
 export async function updateRoster(roster) {
-    const response = await api.patch(`/rosters/${booking._id}`);
+    const response = await api.patch(`/rosters/${roster._id}`);
     console.log('received updated roster from server: ', response.data);
     return response.data;
 }
