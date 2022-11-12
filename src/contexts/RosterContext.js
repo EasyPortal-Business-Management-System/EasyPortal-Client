@@ -6,8 +6,8 @@ export async function getRosters() {
 }
 
 export async function addRoster(newRoster) {
-    const response = await api.post('/rosters', newShift);
-    console.log('received new shift from server: ', response.data);
+    const response = await api.post('/rosters', newRoster);
+    console.log('received new roster from server: ', response.data);
     return response.data;
 }
 
