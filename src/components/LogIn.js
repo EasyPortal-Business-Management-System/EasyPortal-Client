@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "../contexts/AuthContext"
-import { Container  } from 'react-bootstrap';
+import AuthContext from "../contexts/AuthContext";
+import { Container } from "@mui/material";
 
 import axios from '../config/api.js';
 const LOGIN_URL = '/auth';
 
-const Login = () => {
+const LogIn = () => {
     const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
@@ -105,4 +105,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LogIn
