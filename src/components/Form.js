@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import day from "../data/day.json";
 import start_time from "../data/start_time.json";
 import finish_time from "../data/finish_time.json";
-import { Container, Card, Box, Grid, Typography } from "@mui/material";
+import employee_name from "../data/employee_name.json";
+import { Container, Card, Grid, Typography, NativeSelect, Checkbox, InputLabel, FormControlLabel } from "@mui/material";
 import { Button } from "react-bootstrap";
 
 const Form = ({ buttonLabel, handleSubmit, errorMessage, roster }) => {
@@ -23,7 +23,7 @@ const Form = ({ buttonLabel, handleSubmit, errorMessage, roster }) => {
                 start_time: roster.start_time,
                 finish_time: roster.finish_time
 			});
-	}, [booking]);
+	}, [roster]);
 
 	function handleChange(event) {
 		const name = event.target.name;
@@ -49,8 +49,8 @@ const Form = ({ buttonLabel, handleSubmit, errorMessage, roster }) => {
 
 	return (
         <Container>
-			<main className={classes.content}>
-				<Card className={classes.paper}>
+			<main>
+				<Card>
 					<Typography variant="h6" gutterBottom>
 						{buttonLabel}
 						{errorMessage && <p>{errorMessage}</p>}
@@ -94,10 +94,10 @@ const Form = ({ buttonLabel, handleSubmit, errorMessage, roster }) => {
 								<option value="" disabled>
 									select
 								</option>
-								{employee_name.map((obj, index) => (
-									<option key={`${index}-${obj.employee_name}`} value={obj.employee_name}>
+								{day.map((obj, index) => (
+									<option key={`${index}-${obj.day}`} value={obj.day}>
 										{' '}
-										{obj.employee_name}{' '}
+										{obj.day}{' '}
 									</option>
 								))}
 							</NativeSelect>
@@ -157,7 +157,7 @@ const Form = ({ buttonLabel, handleSubmit, errorMessage, roster }) => {
 						</Grid>
 					</Grid>
 					<Button
-						booking={formState}
+						roster={formState}
 						data-cy="roster-new-submit"
 						handleSubmit={handleFormSubmit}
 					/>
@@ -167,4 +167,4 @@ const Form = ({ buttonLabel, handleSubmit, errorMessage, roster }) => {
 	);
 };
 
-export default withRouter(Form);
+export default Form;

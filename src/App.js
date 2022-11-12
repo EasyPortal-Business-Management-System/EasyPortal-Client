@@ -1,15 +1,19 @@
-import Register from "./components/Register";
-import Login from "./components/Login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AddRoster from "./components/AddRoster";
+import React from 'react';
+import LogIn from './components/LogIn';
+import SignUp from "./components/Register";
+import SimpleHome from './components/SimpleHome';
 
 function App() {
-
   return (
-    <main className="App">
-      <Login />
-      <Route exact path="/addroster" element={AddRoster}/>
-    </main>
+    <div className="App">
+      <header className="App-header">
+        <p>
+          <SimpleHome />
+          <LogIn />
+          <SignUp />
+        </p>
+      </header>
+    </div>
   );
 }
 

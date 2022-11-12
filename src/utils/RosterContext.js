@@ -6,8 +6,8 @@ export async function getRosters() {
 }
 
 export async function addRoster(newRoster) {
-    const response = await api.post('/rosters', newShift);
-    console.log('received new shift from server: ', response.data);
+    const response = await api.post('/rosters', newRoster);
+    console.log('received new roster from server: ', response.data);
     return response.data;
 }
 
@@ -17,7 +17,7 @@ export async function deleteRoster(id) {
 }
 
 export async function updateRoster(roster) {
-    const response = await api.patch(`/rosters/${booking._id}`);
+    const response = await api.patch(`/rosters/${roster._id}`);
     console.log('received updated roster from server: ', response.data);
     return response.data;
 }

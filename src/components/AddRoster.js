@@ -1,6 +1,6 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
-import { addRoster } from "../contexts/RosterContext";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { addRoster } from "../utils/RosterContext";
 import { useGlobalState } from "../config/globalState";
 
 import Form from "./Form";
@@ -40,4 +40,4 @@ const AddRoster = ({ history }) => {
 	);
 };
 
-export default withRouter(NewRoster);
+export default AddRoster
