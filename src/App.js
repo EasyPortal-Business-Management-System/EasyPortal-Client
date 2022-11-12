@@ -1,19 +1,18 @@
-import Register from "./components/Register";
-import LogIn from "./components/LogIn";
-import { BrowserRouter as Routes, Route } from "react-router-dom";
-import AddRoster from "./components/AddRoster";
-import Dashboard from "./components/Dashboard";
+import React from 'react';
+import LogIn from './components/LogIn';
+import SignUp from "./components/Register";
 
 function App() {
   return (
-    <main className="App">
-      <Routes>
-        <Route exact path="/login" element={<LogIn />}/>
-        <Route exact path="/register" element={<Register />}/>
-        <Route exact path="/dashboard" element={<Dashboard />}/>
-        <Route exact path="/addroster" element={<AddRoster />}/>
-      </Routes>
-    </main>
+    <div className="App">
+      <header className="App-header">
+        <p>
+          EasyPortal
+          <LogIn />
+          <SignUp />
+        </p>
+      </header>
+    </div>
   );
 }
 

@@ -2,10 +2,9 @@ import React from "react";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useGlobalState } from "../config/globalState";
 import { Link, useNavigate } from "react-router-dom";
-import AuthContext from "../contexts/AuthContext";
+import AuthContext from "../utils/AuthContext";
 
 export default function Dashboard() {
-    const [error, setError] = useState("")
     const { currentUser, logout } = AuthContext()
     const navigate = useNavigate()
 
