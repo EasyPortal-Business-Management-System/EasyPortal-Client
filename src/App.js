@@ -7,13 +7,15 @@ import Rosters from './components/Rosters';
 import AddRoster from './components/AddRoster';
 import EditRoster from './components/EditRoster';
 import DeleteRoster from './components/DeleteRoster';
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <p>
+          <Header />
           <About />
           <LogIn />
           <SignUp />
@@ -21,6 +23,7 @@ function App() {
           <AddRoster />
           <EditRoster />
           <DeleteRoster />
+          <Footer />
         </p>
       </header>
     </div>
