@@ -26,7 +26,7 @@ class PayCalc extends React.Component {
     }
 
     render() {
-    const isComplete = false;
+    const isComplete = true;
     return(
         <div id="paycalc">
             <h1>Pay Calculator</h1>
