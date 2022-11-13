@@ -20,6 +20,8 @@ const addRosters = (roster) => {
     };
 
     setRosters(prevRosters => [...prevRosters, newRoster])
+
+
 }
     
     return (
