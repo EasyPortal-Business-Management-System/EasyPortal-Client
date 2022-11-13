@@ -15,6 +15,7 @@ const Header = () => {
                     <li><a href="#editroster">Edit Roster</a></li>
                     <li><a href="#deleteroster">Delete Roster</a></li>
                     <li><a href="#paycalc">Pay Estimate</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>

@@ -8,6 +8,7 @@ import DeleteRoster from './components/DeleteRoster';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PayCalc from './components/PayCalc';
+import Contact from './components/Contact';
 
 
 function LoadingPage() {
@@ -27,6 +28,7 @@ function MainPage() {
             <EditRoster />
             <DeleteRoster />
             <PayCalc />
+            <Contact />
             <Footer title={"Check weekly for roster updates!"}/>
           </p>
         </header>
