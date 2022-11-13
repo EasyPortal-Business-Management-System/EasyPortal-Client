@@ -1,7 +1,6 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import LogIn from './components/LogIn';
 import SignUp from "./components/Register";
-// import SimpleHome from './components/SimpleHome';
 import About from "./components/About";
 import Rosters from './components/Rosters';
 import AddRoster from './components/AddRoster';
@@ -11,24 +10,47 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 
-function App() {
+function LoadingPage() {
+  return(<h1>Loading EasyPortal...</h1>);
+}
+
+function MainPage() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          <Header />
-          <About />
-          <LogIn />
-          <SignUp />
-          <Rosters />
-          <AddRoster />
-          <EditRoster />
-          <DeleteRoster />
-          <Footer title={"Check weekly for roster updates!"}/>
-        </p>
-      </header>
-    </div>
-  );
+      <div className="App">
+        <header className="App-header">
+          <p>
+            <Header />
+            <About />
+            <LogIn />
+            <SignUp />
+            <Rosters />
+            <AddRoster />
+            <EditRoster />
+            <DeleteRoster />
+            <Footer title={"Check weekly for roster updates!"}/>
+          </p>
+        </header>
+      </div>
+    );
+}
+
+function App() {
+  // useState to create isLoading state
+  const [isLoading, setIsLoading] = useState(true);
+
+  // useEffect hook so that when page is updated we can load for specified time
+  useEffect(() => {
+    if(isLoading) {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500);
+    }
+  });
+
+  // Use ternery to operate loading page and main page
+  return (
+    isLoading ? <LoadingPage /> : <MainPage /> 
+  )
 }
 
 export default App;
