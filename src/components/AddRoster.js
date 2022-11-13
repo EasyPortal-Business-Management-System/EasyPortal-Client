@@ -1,14 +1,19 @@
-import React from "react";
+import { React, useState } from "react";
 
-const AddRoster = () => {
+function RosterInput (props) {
+	const [value, setValue] = useState("");
+	const handleOnChange = (e) => {
+        setValue(e.target.value);
+    }
+    
 	return(
         <section id="#addroster">
-			<h3>New Roster</h3>
-            	<div>
-				<p>You will be able to add a new roster shift here</p>
-            	</div>
+			<h3>Add a shift to roster</h3>
+                    <textarea onChange={handleOnChange} rows="2" columns="25"></textarea>
+                    <p>Value: {value} </p>
+                    <button onClick={() => props.addRosters(value)}>Add shift</button>
         </section>
 	)
 }
 
-export default AddRoster
+export default RosterInput

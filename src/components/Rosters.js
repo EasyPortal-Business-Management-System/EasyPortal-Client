@@ -1,20 +1,28 @@
 import { React, useState } from "react";
 import ListItem from "./ListItem";
+import RosterInput from "./AddRoster";
+
+const initialRoster = [
+    { name: "McKenzie", roster: "Monday"},
+    { name: "Darren", roster: "Tuesday"},
+    { name: "McKenzie", roster: "Wednesday"},
+    { name: "Molly", roster: "Thursday"},
+    { name: "Jake", roster: "Friday"},
+];
 
 const Rosters = () => {
-const [value, setValue] = useState("");
+const [rosters, setRosters] = useState(initialRoster);
 
-    const arr= [
-        { name: "McKenzie", roster: "Monday"},
-        { name: "Darren", roster: "Tuesday"},
-        { name: "McKenzie", roster: "Wednesday"},
-        { name: "Molly", roster: "Thursday"},
-        { name: "Jake", roster: "Friday"},
-    ];
-    
-    const handleOnChange = (e) => {
-        setValue(e.target.value);
-    }
+const addRosters = (roster) => {
+    const newRoster = {
+        name: "Employee Name",
+        roster: roster
+    };
+
+    setRosters(prevRosters => [...prevRosters, newRoster])
+
+
+}
     
     return (
         <section id="#viewrosters">
@@ -22,14 +30,12 @@ const [value, setValue] = useState("");
                 <div>
                     <p>View rosters for employees here</p>
                         <ul>
-                            {arr.map(({name, roster}, id) => (
+                            {rosters.map(({name, roster}, id) => (
                                 <ListItem key={id} name={name} roster={roster}></ListItem>
                             ))}
                         </ul>
 
-                    <h3>Add a shift to roster</h3>
-                    <textarea onChange={handleOnChange} rows="2" columns="25"></textarea>
-                    <p>Value: {value} </p>
+                        <RosterInput addRosters={addRosters}/>
                 </div>
         </section>
     )

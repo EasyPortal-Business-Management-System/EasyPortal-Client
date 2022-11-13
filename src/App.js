@@ -3,7 +3,6 @@ import LogIn from './components/LogIn';
 import SignUp from "./components/Register";
 import About from "./components/About";
 import Rosters from './components/Rosters';
-import AddRoster from './components/AddRoster';
 import EditRoster from './components/EditRoster';
 import DeleteRoster from './components/DeleteRoster';
 import Header from "./components/Header";
@@ -24,7 +23,6 @@ function MainPage() {
             <LogIn />
             <SignUp />
             <Rosters />
-            <AddRoster />
             <EditRoster />
             <DeleteRoster />
             <Footer title={"Check weekly for roster updates!"}/>
