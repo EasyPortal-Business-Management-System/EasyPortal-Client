@@ -10,6 +10,10 @@ const SimpleHome = () => {
                     <li><a href="#about">About</a></li>
                     <li><a href="#login">Log In</a></li>
                     <li><a href="#register">Sign Up</a></li>
+                    <li><a href="#viewrosters">View Rosters</a></li>
+                    <li><a href="#addroster">Add Roster</a></li>
+                    <li><a href="#editroster">Edit Roster</a></li>
+                    <li><a href="#deleteroster">Delete Roster</a></li>
                 </nav>
             </header>
             <h3>About</h3>
