@@ -17,7 +17,7 @@ const SimpleHome = () => {
                 </nav>
             </header>
             <h3>About</h3>
-            <section id="about">
+            <section id="#about">
                 <div>
 
                 </div>
@@ -30,6 +30,24 @@ const SimpleHome = () => {
             </section>
             <h3>Sign Up</h3>
             <section id="#register">
+                <div>
+
+                </div>
+            </section>
+            <h3>New Roster</h3>
+            <section id="#addroster">
+                <div>
+
+                </div>
+            </section>
+            <h3>Edit Roster</h3>
+            <section id="#editroster">
+                <div>
+
+                </div>
+            </section>
+            <h3>Delete Roster</h3>
+            <section id="#deleteroster">
                 <div>
 
                 </div>
