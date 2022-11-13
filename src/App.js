@@ -10,6 +10,7 @@ import DeleteRoster from './components/DeleteRoster';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+
 function App() {
   return (
     <div className="App">
@@ -23,7 +24,7 @@ function App() {
           <AddRoster />
           <EditRoster />
           <DeleteRoster />
-          <Footer />
+          <Footer title={"Check weekly for roster updates!"}/>
         </p>
       </header>
     </div>
