@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import { Container } from "@mui/material";
 import Nav from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
 const sections = [
   {
@@ -46,8 +47,7 @@ function MainPage() {
           <Route path="/viewrosters" element={<Rosters />} />
           <Route path="/paycalc" element={<PayCalc />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
             <Footer title={"Check weekly for roster updates!"}/>
       </div>
