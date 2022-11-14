@@ -9,7 +9,7 @@ function RosterInput (props) {
 	return(
         <section id="#addroster">
 			<h3>Add a shift to roster</h3>
-                    <textarea onChange={handleOnChange} rows="2" columns="25"></textarea>
+                    <textarea onChange={handleOnChange} rows="5" columns="30"></textarea>
                     <p>Value: {value} </p>
                     <button onClick={() => props.addRosters(value)}>Add shift</button>
         </section>
