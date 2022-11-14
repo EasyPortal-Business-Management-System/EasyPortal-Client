@@ -5,7 +5,7 @@ import { questions } from "./PayCalc";
 
 class PayQuestions extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         // Set state using this.state
         // console.log("constructor")
