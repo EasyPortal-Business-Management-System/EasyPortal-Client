@@ -4,6 +4,10 @@ import { Button, Label, Input } from './Styled';
 export default function SignUp({history}) {
 	return (
 		<form >
+			<Label>First Name:</Label>
+			<Input type='text' name='firstname'></Input>
+			<Label>Last Name:</Label>
+			<Input type='text' name='lastname'></Input>
 			<Label>Email:</Label>
 			<Input type='email' name='email'></Input>
 			<Label>Password:</Label>
