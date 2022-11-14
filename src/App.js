@@ -1,46 +1,36 @@
 import { React, useEffect, useState } from 'react';
-import LogIn from './components/LogIn';
-import SignUp from "./components/Register";
 import About from "./components/About";
 import Rosters from './components/Rosters';
-import EditRoster from './components/EditRoster';
-import DeleteRoster from './components/DeleteRoster';
-// import Header from "./components/Header";
+import SimpleHome from "./components/SimpleHome";
 import Footer from "./components/Footer";
 import PayCalc from './components/PayCalc';
 import Contact from './components/Contact';
 import { Container } from "@mui/material";
 import Nav from "./components/Nav";
+import { Route, Routes } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
 const sections = [
   {
     title: "About", 
-    url:"#about",
-  },
-  {
-    title: "Log In", 
-    url:"#login",
-  },
-  {
-    title: "Sign Up", 
-    url:"#register",
+    url:"/about",
   },
   {
     title: "View Rosters", 
-    url:"#viewrosters",
+    url:"/viewrosters",
   },
   {
     title: "Pay Calculator", 
-    url:"#paycalc",
+    url:"/paycalc",
   },
   {
     title: "Contact", 
-    url:"#contact",
+    url:"/contact",
   }
 ]
 
 function LoadingPage() {
-  return(<h1>Loading EasyPortal...</h1>);
+  return(<h1>Launching EasyPortal...</h1>);
 }
 
 function MainPage() {
@@ -51,15 +41,14 @@ function MainPage() {
           sections={sections}>
           </Nav>
         </Container>
-            {/* <Header /> */}
-            <About />
-            <LogIn />
-            <SignUp />
-            <Rosters />
-            <EditRoster />
-            <DeleteRoster />
-            <PayCalc />
-            <Contact />
+        <Routes>
+          <Route path="/" element={<SimpleHome />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/viewrosters" element={<Rosters />} />
+          <Route path="/paycalc" element={<PayCalc />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
             <Footer title={"Check weekly for roster updates!"}/>
       </div>
     );
