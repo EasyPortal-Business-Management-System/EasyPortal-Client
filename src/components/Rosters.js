@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useReducer } from "react";
 import ListItem from "./ListItem";
 import RosterInput from "./AddRoster";
 
@@ -10,22 +10,34 @@ const initialRoster = [
     { name: "Jake", roster: "Friday"},
 ];
 
+const [store, dispatch] = useReducer(reducer, initialState);
+
 const Rosters = () => {
-const [rosters, setRosters] = useState(initialRoster);
+    const initialState = {
+        rosters: initialRosters
+    }
+
+function setReviews() {
+    dispatch({
+        type: 'setRosters',
+        data: reviews
+    })
+}
 
 const addRosters = (roster) => {
     const newRoster = {
-        name: "Employee Name",
+        // Placeholder should have a droplist to choose from employees with registered accounts
+        name: "Employee",
         roster: roster
     };
 
-    setRosters(prevRosters => [...prevRosters, newRoster])
-
-
+    // setRosters(prevRosters => [...prevRosters, newRoster])
+    let rosters = rosters.concat(newRoster)
+    setRosters(rosters)
 }
     
     return (
-        <section id="#viewrosters">
+        <section id="viewrosters">
             <h1>Rosters Home Page</h1>
                 <div>
                     <p>View rosters for employees here</p>
@@ -34,7 +46,6 @@ const addRosters = (roster) => {
                                 <ListItem key={id} name={name} roster={roster}></ListItem>
                             ))}
                         </ul>
-
                         <RosterInput addRosters={addRosters}/>
                 </div>
         </section>
