@@ -26,13 +26,12 @@ class PayCalc extends React.Component {
     }
 
     render() {
-    const isComplete = true;
     return(
         <div id="paycalc">
             <h1>Pay Calculator</h1>
             <h2>Complete the calculator below for a pay estimate</h2>
 
-        {isComplete ? (
+        {this.state.number === questions.length ?  (
             <PayEstimate /> 
         ) : (
             <PayQuestions questionNumber={this.state.number} incrementNumber={this.incrementNumber}/> 
