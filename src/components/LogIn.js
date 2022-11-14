@@ -1,14 +1,14 @@
-import React from 'react';
-import { Button, Label, Input } from './Styled';
+import React from 'react'
+
 
 export default function SignIn({history}) {
 	return (
 		<form >
-			<Label>Email:</Label>
-			<Input type='email' name='email'></Input>
-			<Label>Password:</Label>
-			<Input type='password' name='password'></Input>
-			<Button>Login</Button>
+			<label>Email:</label>
+			<input type='email' name='email'></input>
+			<label>Password:</label>
+			<input type='password' name='password'></input>
+			<button>Login</button>
 		</form>
 	)
 }
