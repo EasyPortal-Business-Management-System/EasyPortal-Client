@@ -2,6 +2,7 @@ import React from "react";
 import { Toolbar, Typography, Link } from "@mui/material";
 
 
+
 function Nav(props) {
     const {title, sections} = props;
     return(
@@ -22,7 +23,7 @@ function Nav(props) {
             varient="dense"
             sx={{justifyContent: 'space-between', overflowX:'auto'}}>
                 {sections.map((section) => (
-                    <Link key={section.title} to={section.url}>
+                    <Link href={section.url}>
                         {section.title}
                     </Link>
                 ))}
