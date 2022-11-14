@@ -1,5 +1,6 @@
 import React from "react";
-import { Toolbar, Typography, Link } from "@mui/material";
+import { Toolbar, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 
@@ -15,7 +16,7 @@ function Nav(props) {
                 align="center"
                 noWrap
                 sx={{ flex: 1 }}>
-                    {title}
+                   <Link to="/">{title}</Link> 
                 </Typography>
             </Toolbar>
             <Toolbar
@@ -23,7 +24,7 @@ function Nav(props) {
             varient="dense"
             sx={{justifyContent: 'space-between', overflowX:'auto'}}>
                 {sections.map((section) => (
-                    <Link href={section.url}>
+                    <Link to={section.url}>
                         {section.title}
                     </Link>
                 ))}
