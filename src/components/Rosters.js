@@ -25,7 +25,7 @@ const addRosters = (roster) => {
 }
     
     return (
-        <section id="#viewrosters">
+        <section id="viewrosters">
             <h1>Rosters Home Page</h1>
                 <div>
                     <p>View rosters for employees here</p>

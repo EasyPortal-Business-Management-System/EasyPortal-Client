@@ -14,22 +14,28 @@ import Nav from "./components/Nav";
 
 const sections = [
   {
-    title: "About", url:"#about"
+    title: "About", 
+    url:"#about",
   },
   {
-    title: "Log In", url:"#login"
+    title: "Log In", 
+    url:"#login",
   },
   {
-    title: "Sign Up", url:"#register"
+    title: "Sign Up", 
+    url:"#register",
   },
   {
-    title: "View Rosters", url:"#viewrosters"
+    title: "View Rosters", 
+    url:"#viewrosters",
   },
   {
-    title: "Pay Calculator", url:"#paycalc"
+    title: "Pay Calculator", 
+    url:"#paycalc",
   },
   {
-    title: "Contact", url:"#contact"
+    title: "Contact", 
+    url:"#contact",
   }
 ]
 
