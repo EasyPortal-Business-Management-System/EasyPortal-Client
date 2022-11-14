@@ -1,6 +1,7 @@
 import { React, useReducer } from "react";
 import ListItem from "./ListItem";
 import RosterInput from "./AddRoster";
+import reducer from "../utils/RostersReducer";
 
 const initialRoster = [
     { name: "McKenzie", roster: "Monday"},
@@ -10,31 +11,65 @@ const initialRoster = [
     { name: "Jake", roster: "Friday"},
 ];
 
-const [store, dispatch] = useReducer(reducer, initialState);
-
 const Rosters = () => {
     const initialState = {
-        rosters: initialRosters
+        rosters: initialRoster,
+        isShowEditBox: false,
+        editBoxMessage: "",
+        selectedRosterId: null
     }
 
-function setReviews() {
-    dispatch({
-        type: 'setRosters',
-        data: reviews
-    })
-}
+    const [store, dispatch] = useReducer(reducer, initialState);
+    const {rosters, isShowEditBox, editBoxMessage } = store;
 
-const addRosters = (roster) => {
-    const newRoster = {
-        // Placeholder should have a droplist to choose from employees with registered accounts
-        name: "Employee",
-        roster: roster
+
+    function setRosters(newRoster) {
+        dispatch({
+            type: 'setRosters',
+            data: newRoster
+        })
+    }
+
+    function initialiseEditBox(id) {
+        dispatch({
+            type: 'initialiseEditBox',
+            data: id
+        })
+    }
+
+    function deleteRosters(id) {
+        dispatch({
+            type: 'deleteRosters',
+            data: id
+        })
+    }
+
+    function updateEditBoxMessage(e) {
+        let message = e.target.value;
+        dispatch({
+            type: 'updateEditBoxMessage',
+            data: message
+        })
+    }
+
+    function saveRoster() {
+        dispatch({
+            type: 'saveRoster'
+        })
+    }
+
+    const addRosters = (roster) => {
+        const newRoster = {
+            // Placeholder should have a droplist to choose from employees with registered accounts
+            name: "Employee",
+            roster: roster
+        };
+
+        // setRosters(prevRosters => [...prevRosters, newRoster])
+        setRosters(newRoster);
     };
 
-    // setRosters(prevRosters => [...prevRosters, newRoster])
-    let rosters = rosters.concat(newRoster)
-    setRosters(rosters)
-}
+    
     
     return (
         <section id="viewrosters">
@@ -43,9 +78,21 @@ const addRosters = (roster) => {
                     <p>View rosters for employees here</p>
                         <ul>
                             {rosters.map(({name, roster}, id) => (
-                                <ListItem key={id} name={name} roster={roster}></ListItem>
+                                <div>
+                                <ListItem key={`${id}-item`} name={name} roster={roster}></ListItem>
+                                <button key={`${id}-button`} onClick={() => initialiseEditBox(id)}>Edit</button>
+                                <button key={`${id}-button`} onClick={() => deleteRosters(id)}>Delete</button>
+                                </div>
                             ))}
                         </ul>
+                        {
+                            isShowEditBox &&
+                            <>
+                            <h3>Edit the roster below</h3>
+                            <textarea onChange={updateEditBoxMessage} value={editBoxMessage} rows="4" cols="30"></textarea>
+                            <button onClick={saveRoster}>Save</button>
+                            </>
+                        }
                         <RosterInput addRosters={addRosters}/>
                 </div>
         </section>
