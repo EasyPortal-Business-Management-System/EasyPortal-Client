@@ -1,16 +1,15 @@
-export async function signUp(data) {
-	return {
-		username: "Test",
-		jwt: "token"
-	}
+import { createContext, useState } from "react";
+
+const AuthContext = createContext({});
+
+export const AuthProvider = ({ children }) => {
+    const [auth, setAuth] = useState({});
+
+    return (
+        <AuthContext.Provider value={{ auth, setAuth }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
-export async function signIn(data) {
-	return {
-		username: "Test",
-		jwt: "token"
-	}
-}
-export async function signOut(data) {
-	// sign in on server
-	return data.username
-}
+
+export default AuthContext;
