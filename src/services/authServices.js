@@ -1,15 +1,40 @@
-import { createContext, useState } from "react";
+import easyportalAPI from '../config/api';
 
-const AuthContext = createContext({});
-
-export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState({});
-
-    return (
-        <AuthContext.Provider value={{ auth, setAuth }}>
-            {children}
-        </AuthContext.Provider>
-    )
+export async function loginUser(userData) {
+	const response = await easyportalAPI.post('/users/login', userData);
+	console.log('User data received: ', response);
+	return response.data;
 }
 
-export default AuthContext;
+export async function logoutUser() {
+	return easyportalAPI.get('/user/logout');
+}
+
+export async function registerUser(userInfo) {
+	const response = await easyportalAPI.post('/users/register', userInfo);
+	console.log('Got new user back from server', response);
+	return response.data;
+}
+
+// Get loggedInUser from localStorage
+export function getLoggedInUser() {
+	return localStorage.getItem('loggedInUser');
+}
+export function getAdminUser() {
+	return localStorage.getItem('adminUser');
+}
+
+// Store loggedInUser username in local storage
+export function setLoggedInUser(user) {
+	console.log('setting user: ', user);
+	user
+		? localStorage.setItem('loggedInUser', user)
+		: localStorage.removeItem('loggedInUser');
+}
+
+export function setAdminUser(admin) {
+	console.log('setting admin: ', admin);
+	admin
+		? localStorage.setItem('adminUser', admin)
+		: localStorage.removeItem('adminUser');
+}
