@@ -1,18 +1,40 @@
-import easyportalAPI from "../config/api";
+import easyportalAPI from '../config/api';
 
-export async function register(data) {
-    const response = await easyportalAPI.post('/api/users', data);
-    return response.data;
+export async function loginUser(userData) {
+	const response = await easyportalAPI.post('/users/login', userData);
+	console.log('User data received: ', response);
+	return response.data;
 }
 
-
-export async function login(data) {
-    const response = await easyportalAPI.post('/api/auth/login', data);
-    return response.data;
+export async function logoutUser() {
+	return easyportalAPI.get('/user/logout');
 }
 
+export async function registerUser(userInfo) {
+	const response = await easyportalAPI.post('/users/register', userInfo);
+	console.log('Got new user back from server', response);
+	return response.data;
+}
 
-export async function logout() {
-    sessionStorage.clear();
-    return "Logged out."
+// Get loggedInUser from localStorage
+export function getLoggedInUser() {
+	return localStorage.getItem('loggedInUser');
+}
+export function getAdminUser() {
+	return localStorage.getItem('adminUser');
+}
+
+// Store loggedInUser username in local storage
+export function setLoggedInUser(user) {
+	console.log('setting user: ', user);
+	user
+		? localStorage.setItem('loggedInUser', user)
+		: localStorage.removeItem('loggedInUser');
+}
+
+export function setAdminUser(admin) {
+	console.log('setting admin: ', admin);
+	admin
+		? localStorage.setItem('adminUser', admin)
+		: localStorage.removeItem('adminUser');
 }

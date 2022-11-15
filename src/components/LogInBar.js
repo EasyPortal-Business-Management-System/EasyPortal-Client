@@ -1,19 +1,19 @@
 import { Typography, Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../services/authServices";
+import { logoutUser } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 
-export default function LoginBar() {
+export default function LogInBar() {
   let navigate = useNavigate();
   const {store, dispatch} = useGlobalState();
   const {loggedInUser} = store;
 
   function handleLogout(event) {
     event.preventDefault();
-    logout().then(() => {
+    logoutUser().then(() => {
         dispatch({type: "setLoggedInUser", data: null});
         dispatch({type: "setToken", data: null});
-
+        navigate("/thankyou")
     })
   }
 

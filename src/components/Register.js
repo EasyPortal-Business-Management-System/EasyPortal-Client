@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Button } from "@mui/material";
-import { register } from "../services/authServices";
+import { registerUser } from "../services/authServices";
 import { useState } from "react";
 import { useGlobalState } from "../utils/stateContext";
 
-function Register() {
+export default function Register() {
   const initialFormState = {
     name: "",
     username: "",
@@ -27,21 +27,21 @@ function Register() {
 
   function handleRegister(event) {
     event.preventDefault();
-    register(formState).then((data) => {
+    registerUser(formState).then((data) => {
       let username = data.username;
       let token = data.token;
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("user", username);
       dispatch({ type: "setLoggedInUser", data: username });
       dispatch({ type: "setToken", data: token });
-      navigate("/");
+      navigate("/viewrosters");
     });
   }
 
   return (
     <>
       <Box>
-        <label>Full Name:</label>
+        <label>Name:</label>
         <input
           type="text"
           name="name"
@@ -54,6 +54,14 @@ function Register() {
           type="text"
           name="username"
           value={formState.username}
+          onChange={handleChange}
+        ></input>
+
+        <label>Email:</label>
+        <input
+          type="text"
+          name="email"
+          value={formState.email}
           onChange={handleChange}
         ></input>
       </Box>
@@ -79,5 +87,3 @@ function Register() {
     </>
   );
 }
-
-export default Register;

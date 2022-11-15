@@ -11,9 +11,10 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Register from "./components/Register";
 import LogIn from './components/LogIn';
-import LoginBar from './components/LogInBar';
+import LogInBar from './components/LogInBar';
 import { StateContext } from "./utils/stateContext";
 import reducer from "./utils/stateReducer";
+import ThankYouPage from './components/ThankYou';
 
 const sections = [
   {
@@ -42,7 +43,7 @@ function MainPage() {
   return (
       <div className="App">
         <Container maxWidth='lg'>
-          <LoginBar />
+          <LogInBar />
           <Nav title="EasyPortal" 
           sections={sections}>
           </Nav>
@@ -55,6 +56,7 @@ function MainPage() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/thankyou" element={<ThankYouPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
             <Footer title={"Check weekly for roster updates!"}/>

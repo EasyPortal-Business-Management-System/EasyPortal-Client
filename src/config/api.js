@@ -3,7 +3,7 @@ import axios from 'axios';
 // Define an API
 
 const easyportalAPI = axios.create({
-    baseURL: 'http://localhost:8000'
+    baseURL: 'http://localhost:55000/'
 })
 
 easyportalAPI.interceptors.request.use((req) => {

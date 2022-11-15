@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../services/authServices";
+import { loginUser } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 import { Button } from "@mui/material";
 
-function LogIn() {
+export default function LogIn() {
   const initialFormState = {
     email: "",
     password: "",
@@ -25,7 +25,7 @@ function LogIn() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    login(formState)
+    loginUser(formState)
       .then((data) => {
         let username = data.username;
         let token = data.token;
@@ -34,7 +34,7 @@ function LogIn() {
 
         dispatch({ type: "setLoggedInUser", data: username });
         dispatch({ type: "setToken", data: token });
-        navigate("/");
+        navigate("/viewrosters");
       })
       .catch((error) => console.log(error));
   }
@@ -58,5 +58,3 @@ function LogIn() {
     </div>
   );
 }
-
-export default LogIn;
