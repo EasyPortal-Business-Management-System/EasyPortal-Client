@@ -1,20 +1,89 @@
-import React from 'react';
-import { Button, Label, Input } from './Styled';
+import { useNavigate } from "react-router-dom";
+import { Box, Button } from "@mui/material";
+import { registerUser } from "../services/authServices";
+import { useState } from "react";
+import { useGlobalState } from "../utils/stateContext";
 
-export default function SignUp({history}) {
-	return (
-		<form >
-			<Label>First Name:</Label>
-			<Input type='text' name='firstname'></Input>
-			<Label>Last Name:</Label>
-			<Input type='text' name='lastname'></Input>
-			<Label>Email:</Label>
-			<Input type='email' name='email'></Input>
-			<Label>Password:</Label>
-			<Input type='password' name='password'></Input>
-			<Label>Confirm Password:</Label>
-			<Input type='password' name='password'></Input>
-			<Button>Sign Up</Button>
-		</form>
-	)
+export default function Register() {
+  const initialFormState = {
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+  };
+
+  const [formState, setFormState] = useState(initialFormState);
+  const { dispatch } = useGlobalState();
+
+  let navigate = useNavigate();
+
+  function handleChange(event) {
+    setFormState({
+      ...formState,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  function handleRegister(event) {
+    event.preventDefault();
+    registerUser(formState).then((data) => {
+      let username = data.username;
+      let token = data.token;
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("user", username);
+      dispatch({ type: "setLoggedInUser", data: username });
+      dispatch({ type: "setToken", data: token });
+      navigate("/viewrosters");
+    });
+  }
+
+  return (
+    <>
+      <Box>
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={formState.name}
+          onChange={handleChange}
+        ></input>
+
+        <label>Username:</label>
+        <input
+          type="text"
+          name="username"
+          value={formState.username}
+          onChange={handleChange}
+        ></input>
+
+        <label>Email:</label>
+        <input
+          type="text"
+          name="email"
+          value={formState.email}
+          onChange={handleChange}
+        ></input>
+      </Box>
+
+      <Box>
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          value={formState.password}
+          onChange={handleChange}
+        ></input>
+
+        <label>Password Confirmation:</label>
+        <input
+          type="password"
+          name="password_confirmation"
+          value={formState.password_confirmation}
+          onChange={handleChange}
+        ></input>
+        <Button onClick={handleRegister}>Register</Button>
+      </Box>
+    </>
+  );
 }

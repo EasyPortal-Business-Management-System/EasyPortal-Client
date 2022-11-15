@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useReducer } from 'react';
 import About from "./components/About";
 import Rosters from './components/Rosters';
 import SimpleHome from "./components/SimpleHome";
@@ -9,6 +9,12 @@ import { Container } from "@mui/material";
 import Nav from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
+import Register from "./components/Register";
+import LogIn from './components/LogIn';
+import LogInBar from './components/LogInBar';
+import { StateContext } from "./utils/stateContext";
+import reducer from "./utils/stateReducer";
+import ThankYouPage from './components/ThankYou';
 
 const sections = [
   {
@@ -37,6 +43,7 @@ function MainPage() {
   return (
       <div className="App">
         <Container maxWidth='lg'>
+          <LogInBar />
           <Nav title="EasyPortal" 
           sections={sections}>
           </Nav>
@@ -47,6 +54,9 @@ function MainPage() {
           <Route path="/viewrosters" element={<Rosters />} />
           <Route path="/paycalc" element={<PayCalc />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/thankyou" element={<ThankYouPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
             <Footer title={"Check weekly for roster updates!"}/>
@@ -55,8 +65,24 @@ function MainPage() {
 }
 
 function App() {
+  const initialState = {
+    categories: [],
+    predictions: [],
+    loggedInUser: sessionStorage.getItem("user") || null,
+    auth: sessionStorage.getItem("token") || null,
+  };
+  const [store, dispatch] = useReducer(reducer, initialState);
   // useState to create isLoading state
   const [isLoading, setIsLoading] = useState(true);
+
+  const { loggedInUser } = store;
+
+  useEffect(() => {
+    if (!loggedInUser) {
+      return;
+    }
+  }, [loggedInUser]);
+
 
   // useEffect hook so that when page is updated we can load for specified time
   useEffect(() => {
@@ -69,8 +95,10 @@ function App() {
 
   // Use ternery to operate loading page and main page
   return (
-    isLoading ? <LoadingPage /> : <MainPage /> 
-  )
+    <StateContext.Provider value={{ store, dispatch }}>
+     {isLoading ? <LoadingPage /> : <MainPage />} 
+    </StateContext.Provider>
+  );
 }
 
 export default App;

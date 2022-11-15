@@ -1,9 +1,18 @@
 import axios from 'axios';
 
-console.log('environment: ', process.env.REACT_APP_API_ENDPOINT);
+// Define an API
 
-export default axios.create({
-	baseURL: process.env.REACT_APP_API_ENDPOINT || 'http://localhost:3000/',
-	timeout: 5000,
-	withCredentials: true,
-});
+const easyportalAPI = axios.create({
+    baseURL: 'http://localhost:55000/'
+})
+
+easyportalAPI.interceptors.request.use((req) => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+        req.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return req;
+
+})
+
+export default easyportalAPI;
