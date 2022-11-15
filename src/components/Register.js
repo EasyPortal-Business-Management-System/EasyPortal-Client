@@ -4,7 +4,7 @@ import { register } from "../services/authServices";
 import { useState } from "react";
 import { useGlobalState } from "../utils/stateContext";
 
-export default function Register() {
+function Register() {
   const initialFormState = {
     name: "",
     username: "",
@@ -41,7 +41,7 @@ export default function Register() {
   return (
     <>
       <Box>
-        <label>Name:</label>
+        <label>Full Name:</label>
         <input
           type="text"
           name="name"
@@ -54,14 +54,6 @@ export default function Register() {
           type="text"
           name="username"
           value={formState.username}
-          onChange={handleChange}
-        ></input>
-
-        <label>Email:</label>
-        <input
-          type="text"
-          name="email"
-          value={formState.email}
           onChange={handleChange}
         ></input>
       </Box>
@@ -87,3 +79,5 @@ export default function Register() {
     </>
   );
 }
+
+export default Register;

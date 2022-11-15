@@ -4,7 +4,7 @@ import { login } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 import { Button } from "@mui/material";
 
-export default function LogIn() {
+function LogIn() {
   const initialFormState = {
     email: "",
     password: "",
@@ -58,3 +58,5 @@ export default function LogIn() {
     </div>
   );
 }
+
+export default LogIn;

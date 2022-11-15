@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useReducer } from 'react';
 import About from "./components/About";
 import Rosters from './components/Rosters';
 import SimpleHome from "./components/SimpleHome";
@@ -12,6 +12,8 @@ import NotFound from "./components/NotFound";
 import Register from "./components/Register";
 import LogIn from './components/LogIn';
 import LoginBar from './components/LogInBar';
+import { StateContext } from "./utils/stateContext";
+import reducer from "./utils/stateReducer";
 
 const sections = [
   {
@@ -61,8 +63,24 @@ function MainPage() {
 }
 
 function App() {
+  const initialState = {
+    categories: [],
+    predictions: [],
+    loggedInUser: sessionStorage.getItem("user") || null,
+    auth: sessionStorage.getItem("token") || null,
+  };
+  const [store, dispatch] = useReducer(reducer, initialState);
   // useState to create isLoading state
   const [isLoading, setIsLoading] = useState(true);
+
+  const { loggedInUser } = store;
+
+  useEffect(() => {
+    if (!loggedInUser) {
+      return;
+    }
+  }, [loggedInUser]);
+
 
   // useEffect hook so that when page is updated we can load for specified time
   useEffect(() => {
@@ -75,8 +93,10 @@ function App() {
 
   // Use ternery to operate loading page and main page
   return (
-    isLoading ? <LoadingPage /> : <MainPage /> 
-  )
+    <StateContext.Provider value={{ store, dispatch }}>
+     {isLoading ? <LoadingPage /> : <MainPage />} 
+    </StateContext.Provider>
+  );
 }
 
 export default App;
