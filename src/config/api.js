@@ -1,4 +1,18 @@
-import axios from "axios";
-export default axios.create({
-  baseURL: "http://localhost:3500",
-});
+import axios from 'axios';
+
+// Define an API
+
+const easyportalAPI = axios.create({
+    baseURL: 'http://localhost:8000'
+})
+
+easyportalAPI.interceptors.request.use((req) => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+        req.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return req;
+
+})
+
+export default easyportalAPI;

@@ -6,7 +6,7 @@ const Home = () => {
         <section id="home">
             <div>
                 <h1>Log in to enter the portal....</h1>
-                <LogIn />
+                {/* <LogIn /> */}
                 {/* <img src="../images/entertheportal.jpg" alt="door opening" height={600} width={1100}></img> */}
             </div>
         </section>

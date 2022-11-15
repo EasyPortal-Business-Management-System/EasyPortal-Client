@@ -1,15 +1,18 @@
-import { createContext, useState } from "react";
+import easyportalAPI from "../config/api";
 
-const AuthContext = createContext({});
-
-export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState({});
-
-    return (
-        <AuthContext.Provider value={{ auth, setAuth }}>
-            {children}
-        </AuthContext.Provider>
-    )
+export async function register(data) {
+    const response = await easyportalAPI.post('/api/users', data);
+    return response.data;
 }
 
-export default AuthContext;
+
+export async function login(data) {
+    const response = await easyportalAPI.post('/api/auth/login', data);
+    return response.data;
+}
+
+
+export async function logout() {
+    sessionStorage.clear();
+    return "Logged out."
+}

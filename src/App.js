@@ -11,6 +11,7 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Register from "./components/Register";
 import LogIn from './components/LogIn';
+import LoginBar from './components/LogInBar';
 
 const sections = [
   {
@@ -39,6 +40,7 @@ function MainPage() {
   return (
       <div className="App">
         <Container maxWidth='lg'>
+          <LoginBar />
           <Nav title="EasyPortal" 
           sections={sections}>
           </Nav>
