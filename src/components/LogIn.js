@@ -27,12 +27,12 @@ export default function LogIn() {
 
     loginUser(formState)
       .then((data) => {
-        let username = data.username;
+        let displayName = data.displayName;
         let token = data.token;
         sessionStorage.setItem("token", token);
-        sessionStorage.setItem("user", username);
+        sessionStorage.setItem("user", displayName);
 
-        dispatch({ type: "setLoggedInUser", data: username });
+        dispatch({ type: "setLoggedInUser", data: displayName });
         dispatch({ type: "setToken", data: token });
         navigate("/viewrosters");
       })
@@ -44,7 +44,7 @@ export default function LogIn() {
       <input
         type="email"
         name="email"
-        value={formState.username}
+        value={formState.displayName}
         onChange={handleChange}
       ></input>
       <label>Password:</label>
