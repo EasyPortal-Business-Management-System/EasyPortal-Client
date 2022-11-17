@@ -23,7 +23,7 @@ const sections = [
   },
   {
     title: "View Rosters", 
-    url:"/viewrosters",
+    url:"/rosters",
   },
   {
     title: "Pay Calculator", 
@@ -51,7 +51,7 @@ function MainPage() {
         <Routes>
           <Route path="/" element={<SimpleHome />} />
           <Route path="/about" element={<About />} />
-          <Route path="/viewrosters" element={<Rosters />} />
+          <Route path="/rosters" element={<Rosters />} />
           <Route path="/paycalc" element={<PayCalc />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
