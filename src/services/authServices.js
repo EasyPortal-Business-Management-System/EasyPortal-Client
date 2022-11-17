@@ -8,7 +8,7 @@ export async function loginUser(userData) {
 }
 
 export async function logoutUser() {
-	return easyportalAPI.get('/user/logout');
+	return easyportalAPI.delete('/users/logout');
 }
 
 export async function registerUser(userInfo) {

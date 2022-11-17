@@ -1,5 +1,5 @@
 import React from "react";
-import LogIn from "./LogIn";
+// import LogIn from "./LogIn";
 
 const Home = () => {
     return (
@@ -7,7 +7,7 @@ const Home = () => {
             <div>
                 <h1>Log in to enter the portal</h1>
                 {/* <LogIn /> */}
-                {/* <img src="../images/entertheportal.jpg" alt="door opening" height={600} width={1100}></img> */}
+                <img src="../images/entertheportal.jpg" alt="door opening" height={600} width={1100}></img>
             </div>
         </section>
     )
