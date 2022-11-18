@@ -3,8 +3,6 @@ import About from "./components/About";
 import Rosters from './components/Rosters';
 import SimpleHome from "./components/SimpleHome";
 import Footer from "./components/Footer";
-import PayCalc from './components/PayCalc';
-import Contact from './components/Contact';
 import { Container } from "@mui/material";
 import Nav from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
@@ -52,8 +50,6 @@ function MainPage() {
           <Route path="/" element={<SimpleHome />} />
           <Route path="/about" element={<About />} />
           <Route path="/rosters" element={<Rosters />} />
-          <Route path="/paycalc" element={<PayCalc />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/thankyou" element={<ThankYouPage />} />
