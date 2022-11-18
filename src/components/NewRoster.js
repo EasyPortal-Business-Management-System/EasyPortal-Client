@@ -1,5 +1,5 @@
 import { Typography, Button } from "@mui/material";
-import { useGlobalState } from "../utils/StateContext";
+import { useGlobalState } from "../utils/stateContext";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
@@ -10,13 +10,19 @@ import {
 
 export default function NewRoster() {
   const initialFormState = {
-    category_id: 1,
-    description: "",
+    name: "",
+    monday: "",
+    tuesday: "",
+    wednesday: "",
+    thursday: "",
+    friday: "",
+    saturday: "",
+    sunnday: ""
   };
   const [formState, setFormState] = useState(initialFormState);
 
   const { dispatch, store } = useGlobalState();
-  const { categories } = store;
+  const { employees } = store;
 
   let { id } = useParams();
   let navigate = useNavigate();
@@ -24,17 +30,23 @@ export default function NewRoster() {
   useEffect(() => {
     if (id) {
       getRoster(id).then((roster) => {
-        const day = days.find(
-          (day) =>
-            day.name.toLowerCase() === roster.day.toLowerCase()
+        const employee = employees.find(
+          (employee) =>
+            employee.name.toLowerCase()
         );
         setFormState({
-          day: day.name,
-          description: prediction.description,
+          name: roster.name,
+          monday: roster.monday,
+          tuesday: roster.tuesday,
+          wednesday: roster.wednesday,
+          thursday: roster.thursday,
+          friday: roster.friday,
+          saturday: roster.saturday,
+          sunnday: roster.sunday
         });
       });
     }
-  }, [id, categories]);
+  }, [id, employees]);
 
   function handleChange(event) {
     setFormState({
@@ -71,47 +83,44 @@ export default function NewRoster() {
       <input
         type="text"
         name="employee"
-        value={formState.employee}
-        onChange={handleChange}
+        // value={formState.employee}
+        // onChange={handleChange}
       ></input>
-      <Typography>Day:</Typography>
-      <select
-        name="day"
-        value={formState.day}
-        onChange={handleChange}
-      >
-        {categories.map((day) => (
-          <option key={day.id} value={day.id}>
-            {day.name}
-          </option>
-        ))}
-      </select>
-
-      <Typography>Start Time:</Typography>
-      <select
-        name="start_time"
-        value={formState.start_time}
-        onChange={handleChange}
-      >
-        {categories.map((start_time) => (
-          <option key={start_time.id} value={start_time.id}>
-            {start_time.name}
-          </option>
-        ))}
-      </select>
-
-      <Typography>Finish Time:</Typography>
-      <select
-        name="finish_time"
-        value={formState.finish_time}
-        onChange={handleChange}
-      >
-        {categories.map((finish_time) => (
-          <option key={finish_time.id} value={finish_time.id}>
-            {finish_time.name}
-          </option>
-        ))}
-      </select>
+      <Typography>Monday:</Typography>
+      <input
+        type="text"
+        name="monday"
+      ></input>
+      <Typography>Tuesday:</Typography>
+      <input
+        type="text"
+        name="tuesday"
+      ></input>
+      <Typography>Wednesday:</Typography>
+      <input
+        type="text"
+        name="wednesday"
+      ></input>
+      <Typography>Thursday:</Typography>
+      <input
+        type="text"
+        name="thursday"
+      ></input>
+      <Typography>Friday:</Typography>
+      <input
+        type="text"
+        name="friday"
+      ></input>
+      <Typography>Saturday:</Typography>
+      <input
+        type="text"
+        name="saturday"
+      ></input>
+      <Typography>Sunday:</Typography>
+      <input
+        type="text"
+        name="sunday"
+      ></input>
       <Button onClick={handleClick}>{id ? "Update" : "Create"}</Button>
     </div>
   );

@@ -13,6 +13,9 @@ import LogInBar from './components/LogInBar';
 import { StateContext } from "./utils/stateContext";
 import reducer from "./utils/stateReducer";
 import ThankYouPage from './components/ThankYou';
+import RosterDetails from "./components/RosterDetails";
+import { getRosters } from "../src/services/rosterServices";
+import NewRoster from './components/NewRoster';
 
 const sections = [
   {
@@ -22,14 +25,6 @@ const sections = [
   {
     title: "View Rosters", 
     url:"/rosters",
-  },
-  {
-    title: "Pay Calculator", 
-    url:"/paycalc",
-  },
-  {
-    title: "Contact", 
-    url:"/contact",
   }
 ]
 
@@ -50,6 +45,9 @@ function MainPage() {
           <Route path="/" element={<SimpleHome />} />
           <Route path="/about" element={<About />} />
           <Route path="/rosters" element={<Rosters />} />
+          <Route path="/rosters/new" element={<NewRoster />} />
+          <Route path="/rosters/:id" element={<RosterDetails />} />
+          <Route path="/rosters/update/:id" element={<NewRoster />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/thankyou" element={<ThankYouPage />} />
@@ -62,8 +60,7 @@ function MainPage() {
 
 function App() {
   const initialState = {
-    categories: [],
-    predictions: [],
+    employees: [],
     loggedInUser: sessionStorage.getItem("user") || null,
     auth: sessionStorage.getItem("token") || null,
   };
@@ -77,6 +74,12 @@ function App() {
     if (!loggedInUser) {
       return;
     }
+
+    getRosters()
+    .then((employees) =>
+      dispatch({ type: "setRosters", data: employees })
+    )
+    .catch((error) => console.log(error));
   }, [loggedInUser]);
 
 
