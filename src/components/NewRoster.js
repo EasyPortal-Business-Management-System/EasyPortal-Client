@@ -10,14 +10,14 @@ import {
 
 export default function NewRoster() {
   const initialFormState = {
-    name: "",
+    employee_id: 1,
     monday: "",
     tuesday: "",
     wednesday: "",
     thursday: "",
     friday: "",
     saturday: "",
-    sunnday: ""
+    sunday: ""
   };
   const [formState, setFormState] = useState(initialFormState);
 
@@ -35,14 +35,14 @@ export default function NewRoster() {
             employee.name.toLowerCase()
         );
         setFormState({
-          name: roster.name,
-          monday: roster.monday,
-          tuesday: roster.tuesday,
-          wednesday: roster.wednesday,
-          thursday: roster.thursday,
-          friday: roster.friday,
-          saturday: roster.saturday,
-          sunnday: roster.sunday
+          employee_id: employee.id,
+          monday: employee.monday,
+          tuesday: employee.tuesday,
+          wednesday: employee.wednesday,
+          thursday: employee.thursday,
+          friday: employee.friday,
+          saturday: employee.saturday,
+          sunnday: employee.sunday
         });
       });
     }
@@ -80,12 +80,17 @@ export default function NewRoster() {
   return (
     <div>
       <Typography>Employee:</Typography>
-      <input
-        type="text"
-        name="employee"
-        // value={formState.employee}
-        // onChange={handleChange}
-      ></input>
+      <select
+        name="employee_id"
+        value={formState.name}
+        onChange={handleChange}
+      >
+        {employees.map((employee) => (
+          <option key={employee.id} value={employee.id}>
+            {employee.name}
+          </option>
+        ))}
+      </select>
       <Typography>Monday:</Typography>
       <input
         type="text"
