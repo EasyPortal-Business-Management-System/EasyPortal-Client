@@ -1,18 +1,20 @@
 import easyportalAPI from '../config/api';
 
 export async function loginUser(userData) {
-	const response = await easyportalAPI.post('/users/login', userData);
-	console.log('User data received: ', response);
+	const response = await easyportalAPI.post('/users/login/users/sign-in', userData);
+	console.log ("response is (signIn): ", response)
+	console.log ("response data is (SignIn): ", userData)
 	return response.data;
 }
 
 export async function logoutUser() {
-	return easyportalAPI.get('/user/logout');
+	return easyportalAPI.delete('/users/logout');
 }
 
 export async function registerUser(userInfo) {
-	const response = await easyportalAPI.post('/users/register', userInfo);
-	console.log('Got new user back from server', response);
+	const response = await easyportalAPI.post('/users/sign-up', userInfo);
+	console.log ("response is (signUp): ", response)
+	console.log ("response data is (SignUp): ", userInfo)
 	return response.data;
 }
 
@@ -24,7 +26,7 @@ export function getAdminUser() {
 	return localStorage.getItem('adminUser');
 }
 
-// Store loggedInUser username in local storage
+// Store loggedInUser displayName in local storage
 export function setLoggedInUser(user) {
 	console.log('setting user: ', user);
 	user
