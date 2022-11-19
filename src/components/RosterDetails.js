@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useGlobalState } from "../utils/stateContext";
 
 import {
-  deleteRoster,
   getRoster,
+  deleteRoster
 } from "../services/rosterServices";
 
-export default function RosterDetails() {
-  const [roster, setRoster] = useState(null);
+function RosterDetails() {
+  const [employee, setRoster] = useState(null);
 
   let navigate = useNavigate();
   const { id } = useParams();
@@ -17,25 +17,31 @@ export default function RosterDetails() {
 
   function handleDelete() {
     deleteRoster(id).then(() => {
-      dispatch({ type: "deleteRoster", data: id });
+      dispatchEvent({ type: "deleteRoster", data: id });
       navigate('/rosters');
     });
   }
 
 	useEffect(() => {
 		getRoster(id)
-		.then((roster) => setRoster(roster))
+		.then((employee) => setRoster(employee))
 		.catch((error) => console.log(error))
 	},[id])
 
-  if (!roster) return null;
+  if (!employee) return null;
 
   return (
     <div>
-      <p>Employee: {roster.name}</p>
-      <p>Day: {roster.day}</p>
-      <p>Start Time: {roster.start_time}</p>
-      <p>Finish Time: {roster.finish_time}</p>
+      <Typography><h1>Edit employee roster below</h1></Typography>
+      <Typography><h4>Click 'update' to submit changes or 'delete' to delete the roster</h4></Typography>
+      <p>Employee: {employee.name}</p>
+      <p>Monday: {employee.monday}</p>
+      <p>Tuesday: {employee.tuesday}</p>
+      <p>Wednesday: {employee.wednesday}</p>
+      <p>Thursday: {employee.thursday}</p>
+      <p>Friday: {employee.friday}</p>
+      <p>Saturday: {employee.saturday}</p>
+      <p>Sunday: {employee.sunday}</p>
 
       <Box>
         <Button onClick={() => navigate(`/rosters/update/${id}`)}>
@@ -46,3 +52,5 @@ export default function RosterDetails() {
     </div>
   );
 }
+
+export default RosterDetails;
