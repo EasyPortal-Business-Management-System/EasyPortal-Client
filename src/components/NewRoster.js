@@ -29,7 +29,7 @@ export default function NewRoster() {
 
   useEffect(() => {
     if (id) {
-      getRoster(id).then((roster) => {
+      getRoster(id).then(() => {
         const employee = employees.find(
           (employee) =>
             employee.name.toLowerCase()

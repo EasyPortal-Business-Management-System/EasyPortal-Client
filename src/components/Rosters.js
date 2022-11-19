@@ -33,9 +33,9 @@ getRosters()
               </Link>
             );
           })}
-          {/* <button onClick={() => navigate("/rosters/new")}>
+          <button onClick={() => navigate("/rosters/new")}>
             Add Roster
-          </button> */}
+          </button>
     </div>
   )
 }
