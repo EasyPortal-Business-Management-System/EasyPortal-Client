@@ -11,7 +11,7 @@ import {
 export default function NewRoster() {
   const initialFormState = {
     employee_id: 1,
-    monday: "",
+    monday: "hello",
     tuesday: "",
     wednesday: "",
     thursday: "",
@@ -42,7 +42,7 @@ export default function NewRoster() {
           thursday: employee.thursday,
           friday: employee.friday,
           saturday: employee.saturday,
-          sunnday: employee.sunday
+          sunday: employee.sunday
         });
       });
     }
