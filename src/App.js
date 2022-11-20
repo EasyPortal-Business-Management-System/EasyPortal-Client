@@ -18,6 +18,8 @@ import NewRoster from './components/NewRoster';
 import { getLoggedInUser, getAdminUser } from './services/authServices';
 import { getRosters } from './services/rosterServices';
 import EmployeeDashboard from './components/EmployeeDashboard';
+import PrivateRoute from './components/PrivateRoute';
+import ProtectedRoutes from './components/PrivateRoute';
 
 const sections = [
   {
@@ -46,7 +48,7 @@ function MainPage() {
         <Routes>
           <Route path="/" element={<SimpleHome />} />
           <Route path="/about" element={<About />} />
-          <Route path="/rosters" element={<Rosters />} />
+          <Route path="/rosters" element={<ProtectedRoutes><Rosters /></ProtectedRoutes>} />
           <Route path="/rosters/new" element={<NewRoster />} />
           <Route path="/rosters/:id" element={<RosterDetails />} />
           <Route path="/rosters/update/:id" element={<NewRoster />} />
@@ -65,6 +67,7 @@ function App() {
   const initialState = {
     employees: [],
     loggedInUser: sessionStorage.getItem("user") || null,
+    adminUser: sessionStorage.getItem("user") || null,
     auth: sessionStorage.getItem("token") || null,
   };
   const [store, dispatch] = useReducer(reducer, initialState);

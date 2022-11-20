@@ -34,7 +34,7 @@ export default function LogIn() {
 
         dispatch({ type: "setLoggedInUser", data: displayName });
         dispatch({ type: "setToken", data: token });
-        navigate("/employeedashboard");
+        navigate("/dashboard");
       })
       .catch((error) => console.log(error));
   }

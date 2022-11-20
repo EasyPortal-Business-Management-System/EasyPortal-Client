@@ -80,17 +80,6 @@ export default function NewRoster() {
   return (
     <div>
       <Typography>Employee:</Typography>
-      <select
-        name="employee_id"
-        value={formState.name}
-        onChange={handleChange}
-      >
-        {employees.map((employee) => (
-          <option key={employee.id} value={employee.id}>
-            {employee.name}
-          </option>
-        ))}
-      </select>
       <Typography>Monday:</Typography>
       <input
         type="text"
