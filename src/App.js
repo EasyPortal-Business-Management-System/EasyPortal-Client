@@ -14,8 +14,10 @@ import { StateContext } from "./utils/stateContext";
 import reducer from "./utils/stateReducer";
 import ThankYouPage from './components/ThankYou';
 import RosterDetails from "./components/RosterDetails";
-import { getRosters } from "../src/services/rosterServices";
 import NewRoster from './components/NewRoster';
+import { getLoggedInUser, getAdminUser } from './services/authServices';
+import { getRosters } from './services/rosterServices';
+import EmployeeDashboard from './components/EmployeeDashboard';
 
 const sections = [
   {
@@ -51,6 +53,7 @@ function MainPage() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/thankyou" element={<ThankYouPage />} />
+          <Route path="/dashboard" element={<EmployeeDashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
             <Footer title={"Check weekly for roster updates!"}/>
@@ -68,7 +71,7 @@ function App() {
   // useState to create isLoading state
   const [isLoading, setIsLoading] = useState(true);
 
-  const { loggedInUser } = store;
+  const { loggedInUser, adminUser } = store;
 
   useEffect(() => {
     if (!loggedInUser) {

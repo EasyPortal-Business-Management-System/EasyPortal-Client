@@ -8,10 +8,10 @@ import { employees } from "../services/rosterServices";
 function Rosters() {
   let navigate = useNavigate();
   const { store, dispatch } = useGlobalState();
-  const { loggedInUser } = store;
+  const { adminUser } = store;
 
   useEffect(() => {
-    if (!loggedInUser) {
+    if (!adminUser) {
       return;
     }
 
@@ -20,7 +20,7 @@ getRosters()
     dispatch({ type: "setRosters", data: employees })
     )
     .catch((error) => console.log(error));
-  }, [loggedInUser, dispatch]);
+  }, [adminUser, dispatch]);
 
   return(
     <div>

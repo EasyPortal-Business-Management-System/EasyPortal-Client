@@ -34,7 +34,7 @@ export default function LogIn() {
 
         dispatch({ type: "setLoggedInUser", data: displayName });
         dispatch({ type: "setToken", data: token });
-        navigate("/rosters");
+        navigate("/employeedashboard");
       })
       .catch((error) => console.log(error));
   }
@@ -44,7 +44,7 @@ export default function LogIn() {
       <input
         type="email"
         name="email"
-        value={formState.displayName}
+        value={formState.email}
         onChange={handleChange}
       ></input>
       <label>Password:</label>

@@ -47,7 +47,7 @@ function RosterDetails() {
         <Button onClick={() => navigate(`/rosters/update/${id}`)}>
           Update
         </Button>
-        <Button onClick={handleDelete}>Delete</Button>
+        <Button onClick={handleDelete}>Delete User</Button>
       </Box>
     </div>
   );

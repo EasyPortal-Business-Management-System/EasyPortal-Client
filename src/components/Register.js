@@ -44,14 +44,6 @@ export default function Register() {
         <label>Name:</label>
         <input
           type="text"
-          name="name"
-          value={formState.name}
-          onChange={handleChange}
-        ></input>
-
-        <label>displayName:</label>
-        <input
-          type="text"
           name="displayName"
           value={formState.displayName}
           onChange={handleChange}

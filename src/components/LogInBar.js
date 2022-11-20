@@ -18,7 +18,7 @@ export default function LogInBar() {
   }
 
   return (
-    <Box display="flex" justifyContent="flex-end">
+    <Box display="flex" justifyContent="space-around">
       {loggedInUser ? (
         <>
           <Typography m={2}>Hi {loggedInUser}</Typography>
