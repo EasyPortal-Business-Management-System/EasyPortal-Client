@@ -48,7 +48,7 @@ function MainPage() {
         <Routes>
           <Route path="/" element={<SimpleHome />} />
           <Route path="/about" element={<About />} />
-          <Route path="/rosters" element={<ProtectedRoutes><Rosters /></ProtectedRoutes>} />
+          <Route path="/rosters" element={<Rosters />} />
           <Route path="/rosters/new" element={<NewRoster />} />
           <Route path="/rosters/:id" element={<RosterDetails />} />
           <Route path="/rosters/update/:id" element={<NewRoster />} />

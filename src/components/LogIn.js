@@ -31,10 +31,14 @@ export default function LogIn() {
         let token = data.token;
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("user", displayName);
-
         dispatch({ type: "setLoggedInUser", data: displayName });
+        dispatch({ type: "setAdminUser", data: displayName})
         dispatch({ type: "setToken", data: token });
-        navigate("/dashboard");
+        if ('adminUser') {
+          navigate("/rosters");
+        } else {
+          navigate("/dashboa");
+        }
       })
       .catch((error) => console.log(error));
   }
