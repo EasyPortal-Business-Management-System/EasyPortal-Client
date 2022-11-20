@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../services/authServices";
+import { loginUser} from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 import { Button } from "@mui/material";
 
@@ -29,11 +29,14 @@ export default function LogIn() {
       .then((data) => {
         let displayName = data.displayName;
         let token = data.token;
+        let uid = data.uid;
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("user", displayName);
+        sessionStorage.setItem("uid", uid);
 
         dispatch({ type: "setLoggedInUser", data: displayName });
         dispatch({ type: "setToken", data: token });
+        dispatch({ type: "setUID", data: uid });
         navigate("/viewrosters");
       })
       .catch((error) => console.log(error));

@@ -15,6 +15,15 @@ export default function reducer (state, action) {
 				}
 			}
 		}
+		case 'setUID': {
+			return {
+				...state,
+				uid: {
+					...state.uid,
+					uid: action.data
+				}
+			}
+		}
 		default: return state
 	}
 }

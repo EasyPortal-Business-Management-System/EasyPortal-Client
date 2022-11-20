@@ -66,6 +66,7 @@ function App() {
     predictions: [],
     loggedInUser: sessionStorage.getItem("user") || null,
     auth: sessionStorage.getItem("token") || null,
+    uid: sessionStorage.getItem("uid") || null
   };
   const [store, dispatch] = useReducer(reducer, initialState);
   // useState to create isLoading state

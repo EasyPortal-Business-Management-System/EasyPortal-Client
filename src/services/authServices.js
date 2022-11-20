@@ -1,21 +1,30 @@
 import easyportalAPI from '../config/api';
 
 export async function loginUser(userData) {
-	const response = await easyportalAPI.post('/users/login/users/sign-in', userData);
+	const response = await easyportalAPI.post('/users/sign-in', userData)
+	const responseMongoDB = await easyportalAPI.post('/employees/', userData)
 	console.log ("response is (signIn): ", response)
 	console.log ("response data is (SignIn): ", userData)
-	return response.data;
+	return (response.data, responseMongoDB.data);
 }
 
 export async function logoutUser() {
-	return easyportalAPI.delete('/users/logout');
+	return easyportalAPI.post('/users/sign-out/:uid');
+}
+
+// delete function api
+export async function deleteUser() {
+
+	return ((easyportalAPI.delete('/users/delete/:uid')),
+	(easyportalAPI.delete('/employees/:postID')) )
 }
 
 export async function registerUser(userInfo) {
-	const response = await easyportalAPI.post('/users/sign-up', userInfo);
-	console.log ("response is (signUp): ", response)
+	const responseFirebase = await easyportalAPI.post('/users/sign-up', userInfo)
+	
+	console.log ("response is (signUp): ", responseFirebase)
 	console.log ("response data is (SignUp): ", userInfo)
-	return response.data;
+	return responseFirebase.data;
 }
 
 // Get loggedInUser from localStorage
@@ -24,6 +33,10 @@ export function getLoggedInUser() {
 }
 export function getAdminUser() {
 	return localStorage.getItem('adminUser');
+}
+
+export function getUID() {
+	return localStorage.getItem('uid');
 }
 
 // Store loggedInUser displayName in local storage
@@ -39,4 +52,11 @@ export function setAdminUser(admin) {
 	admin
 		? localStorage.setItem('adminUser', admin)
 		: localStorage.removeItem('adminUser');
+}
+
+export function setUID(uid) {
+	console.log('uid: ', uid);
+	uid
+		? localStorage.setItem('uid', uid)
+		: localStorage.removeItem('uid');
 }

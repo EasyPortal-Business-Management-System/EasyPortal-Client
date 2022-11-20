@@ -6,7 +6,7 @@ import { useGlobalState } from "../utils/stateContext";
 
 export default function Register() {
   const initialFormState = {
-    name: "",
+   
     displayName: "",
     email: "",
     password: "",
@@ -41,15 +41,8 @@ export default function Register() {
   return (
     <>
       <Box>
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formState.name}
-          onChange={handleChange}
-        ></input>
-
-        <label>displayName:</label>
+        
+        <label>name:</label>
         <input
           type="text"
           name="displayName"
