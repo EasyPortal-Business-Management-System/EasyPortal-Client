@@ -18,7 +18,7 @@ function RosterDetails() {
   function handleDelete() {
     deleteRoster(id).then(() => {
       dispatchEvent({ type: "deleteRoster", data: id });
-      navigate('/rosters');
+      navigate(`/rosters/${id}`);
     });
   }
 

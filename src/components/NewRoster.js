@@ -71,7 +71,7 @@ export default function NewRoster() {
       createRoster({ ...formState })
         .then((roster) => {
           dispatch({ type: "addRoster", data: roster });
-          navigate("/rosters");
+          navigate("/rosters/new");
         })
         .catch((error) => console.log(error));
     }

@@ -34,7 +34,7 @@ export default function Register() {
       sessionStorage.setItem("user", displayName);
       dispatch({ type: "setLoggedInUser", data: displayName });
       dispatch({ type: "setToken", data: token });
-      navigate("/viewrosters");
+      navigate("/rosters");
     });
   }
 
