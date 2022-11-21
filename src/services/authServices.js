@@ -1,14 +1,14 @@
 import easyportalAPI from '../config/api';
 
 export async function loginUser(userData) {
-	const response = await easyportalAPI.post('/users/login/users/sign-in', userData);
+	const response = await easyportalAPI.post('/users/sign-in', userData);
 	console.log ("response is (signIn): ", response)
 	console.log ("response data is (SignIn): ", userData)
 	return response.data;
 }
 
 export async function logoutUser() {
-	return easyportalAPI.delete('/users/logout');
+    return easyportalAPI.post('/users/sign-out');
 }
 
 export async function registerUser(userInfo) {
