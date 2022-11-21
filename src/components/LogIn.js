@@ -37,7 +37,7 @@ export default function LogIn() {
         if ('adminUser') {
           navigate("/rosters");
         } else {
-          navigate("/dashboa");
+          navigate("/dashboard");
         }
       })
       .catch((error) => console.log(error));

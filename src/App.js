@@ -18,8 +18,7 @@ import NewRoster from './components/NewRoster';
 import { getLoggedInUser, getAdminUser } from './services/authServices';
 import { getRosters } from './services/rosterServices';
 import EmployeeDashboard from './components/EmployeeDashboard';
-import PrivateRoute from './components/PrivateRoute';
-import ProtectedRoutes from './components/PrivateRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const sections = [
   {
@@ -82,12 +81,11 @@ function App() {
     }
 
     getRosters()
-    .then((employees) =>
-      dispatch({ type: "setRosters", data: employees })
+    .then((rosters) => 
+      dispatch({ type: "setRosters", data: rosters })
     )
     .catch((error) => console.log(error));
   }, [loggedInUser]);
-
 
   // useEffect hook so that when page is updated we can load for specified time
   useEffect(() => {
@@ -101,7 +99,38 @@ function App() {
   // Use ternery to operate loading page and main page
   return (
     <StateContext.Provider value={{ store, dispatch }}>
-     {isLoading ? <LoadingPage /> : <MainPage />} 
+      <Container maxWidth='lg'>
+          <LogInBar />
+          <Nav title="EasyPortal" 
+          sections={sections}>
+          </Nav>
+        </Container>
+     <Routes>
+          {!loggedInUser ?(
+          <>
+          <Route path="/" element={<SimpleHome />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/thankyou" element={<ThankYouPage />} />
+          <Route path="*" element={<NotFound />} />
+          </>
+          ):(
+            <>
+          <Route path="/" element={<SimpleHome />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/rosters" element={<Rosters />} />
+          <Route path="/rosters/new" element={<NewRoster />} />
+          <Route path="/rosters/:id" element={<RosterDetails />} />
+          <Route path="/rosters/update/:id" element={<NewRoster />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/thankyou" element={<ThankYouPage />} />
+          <Route path="/dashboard" element={<EmployeeDashboard />} />
+          <Route path="*" element={<NotFound />} />
+            </>
+          )}
+          </Routes>
     </StateContext.Provider>
   );
 }

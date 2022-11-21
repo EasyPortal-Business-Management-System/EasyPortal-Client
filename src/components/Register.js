@@ -6,7 +6,6 @@ import { useGlobalState } from "../utils/stateContext";
 
 export default function Register() {
   const initialFormState = {
-    name: "",
     displayName: "",
     email: "",
     password: "",

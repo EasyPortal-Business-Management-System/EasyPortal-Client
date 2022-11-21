@@ -50,11 +50,11 @@ export async function deleteRoster(id) {
     return id;
 }
 
-export async function updateRoster(employee) {
+export async function updateRoster(id) {
 	// let updatedRoster = {
 	// 	roster: employee.roster
 	// }
 	// const response = await easyportalAPI.put(`/rosters/${id}`, updatedRoster);
 	// return response.data;
-    return employee;
+    return id;
 }

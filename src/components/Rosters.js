@@ -24,6 +24,8 @@ getRosters()
 
   return(
     <div>
+      {adminUser ? (
+        <>
       <Typography><h1>Employee Roster List</h1></Typography>
       <Typography><h2>Click on employee name to make changes</h2></Typography>
       {employees.map((employee, index) => {
@@ -36,6 +38,14 @@ getRosters()
           <button onClick={() => navigate("/rosters/new")}>
             Add Roster
           </button>
+          </>
+      ):(
+        <>
+        <Typography>
+          Please log in.
+        </Typography>
+        </>
+      )}
     </div>
   )
 }
