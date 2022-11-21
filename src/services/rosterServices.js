@@ -29,7 +29,8 @@ function transformRoster(employee) {
 }
 
 export async function getRosters() {
-    const response = await easyportalAPI.get('/employees');
+    const response = await easyportalAPI.get('/employees/');
+    console.log ("response is (allEmployees):", response);
     return response.data;
 }
 

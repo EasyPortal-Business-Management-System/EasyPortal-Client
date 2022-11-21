@@ -6,34 +6,35 @@ import { useEffect } from "react";
 
 function Rosters() {
   let navigate = useNavigate();
+
   const { store, dispatch } = useGlobalState();
-  const { adminUser } = store;
+  const { loggedInUser, employees } = store;
 
   useEffect(() => {
-    if (!adminUser) {
+    if (!loggedInUser) {
       return;
     }
-
-getRosters()
-  .then((employees) =>
-    dispatch({ type: "setRosters", data: employees })
+    
+    getRosters()
+    .then((employees) =>
+      dispatch({ type: "setEmployees", data: employees})
     )
     .catch((error) => console.log(error));
-  }, [adminUser, dispatch]);
+  }, [loggedInUser, dispatch]);
 
   return(
     <div>
-      {adminUser ? (
+      {loggedInUser ? (
         <>
       <Typography><h1>Employee Roster List</h1></Typography>
       <Typography><h2>Click on employee name to make changes</h2></Typography>
-      {/* {employees.map((employee, index) => {
+      {employees.map((employee, index) => {
             return (
               <Link key={employee.id} to={`/rosters/${employee.id}`}>
-                <Typography>{employee.name}</Typography>
+                <Typography>{employee.displayName}</Typography>
               </Link>
             );
-          })} */}
+          })}
           <button onClick={() => navigate("/rosters/new")}>
             Add Roster
           </button>
