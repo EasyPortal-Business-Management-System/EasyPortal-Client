@@ -6,7 +6,6 @@ import { useGlobalState } from "../utils/stateContext";
 
 export default function Register() {
   const initialFormState = {
-    name: "",
     displayName: "",
     email: "",
     password: "",
@@ -34,7 +33,7 @@ export default function Register() {
       sessionStorage.setItem("user", displayName);
       dispatch({ type: "setLoggedInUser", data: displayName });
       dispatch({ type: "setToken", data: token });
-      navigate("/viewrosters");
+      navigate("/rosters");
     });
   }
 
@@ -42,14 +41,6 @@ export default function Register() {
     <>
       <Box>
         <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formState.name}
-          onChange={handleChange}
-        ></input>
-
-        <label>displayName:</label>
         <input
           type="text"
           name="displayName"

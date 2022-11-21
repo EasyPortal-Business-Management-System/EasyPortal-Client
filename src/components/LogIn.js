@@ -31,10 +31,14 @@ export default function LogIn() {
         let token = data.token;
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("user", displayName);
-
         dispatch({ type: "setLoggedInUser", data: displayName });
+        dispatch({ type: "setAdminUser", data: displayName})
         dispatch({ type: "setToken", data: token });
-        navigate("/rosters");
+        if ('adminUser') {
+          navigate("/rosters");
+        } else {
+          navigate("/dashboard");
+        }
       })
       .catch((error) => console.log(error));
   }
@@ -44,7 +48,7 @@ export default function LogIn() {
       <input
         type="email"
         name="email"
-        value={formState.displayName}
+        value={formState.email}
         onChange={handleChange}
       ></input>
       <label>Password:</label>

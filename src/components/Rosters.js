@@ -8,10 +8,10 @@ import { employees } from "../services/rosterServices";
 function Rosters() {
   let navigate = useNavigate();
   const { store, dispatch } = useGlobalState();
-  const { loggedInUser } = store;
+  const { adminUser } = store;
 
   useEffect(() => {
-    if (!loggedInUser) {
+    if (!adminUser) {
       return;
     }
 
@@ -20,10 +20,12 @@ getRosters()
     dispatch({ type: "setRosters", data: employees })
     )
     .catch((error) => console.log(error));
-  }, [loggedInUser, dispatch]);
+  }, [adminUser, dispatch]);
 
   return(
     <div>
+      {adminUser ? (
+        <>
       <Typography><h1>Employee Roster List</h1></Typography>
       <Typography><h2>Click on employee name to make changes</h2></Typography>
       {employees.map((employee, index) => {
@@ -36,6 +38,14 @@ getRosters()
           <button onClick={() => navigate("/rosters/new")}>
             Add Roster
           </button>
+          </>
+      ):(
+        <>
+        <Typography>
+          Please log in.
+        </Typography>
+        </>
+      )}
     </div>
   )
 }

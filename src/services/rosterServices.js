@@ -39,22 +39,22 @@ export async function getRoster(id) {
 }
 
 export async function createRoster(employee) {
-	// const response = await easyportalAPI.post('/rosters', roster);
+	// const response = await easyportalAPI.post('/rosters/new', roster);
 	// return response.data;
     return employee;
 }
 
 export async function deleteRoster(id) {
-	// const response = await easyportalAPI.delete(`/rosters/${employee.name}`);
+	// const response = await easyportalAPI.delete(`/rosters/${id}`);
 	// return response.data;
     return id;
 }
 
-export async function updateRoster(employee) {
+export async function updateRoster(id) {
 	// let updatedRoster = {
 	// 	roster: employee.roster
 	// }
-	// const response = await easyportalAPI.put(`/rosters/${employee.name}`, updatedRoster);
+	// const response = await easyportalAPI.put(`/rosters/${id}`, updatedRoster);
 	// return response.data;
-    return employee;
+    return id;
 }

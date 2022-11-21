@@ -1,3 +1,4 @@
+const { clear } = require("@testing-library/user-event/dist/clear");
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({

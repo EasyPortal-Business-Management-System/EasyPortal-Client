@@ -71,7 +71,7 @@ export default function NewRoster() {
       createRoster({ ...formState })
         .then((roster) => {
           dispatch({ type: "addRoster", data: roster });
-          navigate("/rosters");
+          navigate("/rosters/new");
         })
         .catch((error) => console.log(error));
     }
@@ -80,17 +80,6 @@ export default function NewRoster() {
   return (
     <div>
       <Typography>Employee:</Typography>
-      <select
-        name="employee_id"
-        value={formState.name}
-        onChange={handleChange}
-      >
-        {employees.map((employee) => (
-          <option key={employee.id} value={employee.id}>
-            {employee.name}
-          </option>
-        ))}
-      </select>
       <Typography>Monday:</Typography>
       <input
         type="text"
