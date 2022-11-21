@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../services/authServices";
+import { loginUser, setAdminUser } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 import { Button } from "@mui/material";
 
@@ -34,11 +34,7 @@ export default function LogIn() {
         dispatch({ type: "setLoggedInUser", data: displayName });
         dispatch({ type: "setAdminUser", data: displayName})
         dispatch({ type: "setToken", data: token });
-        if ('adminUser') {
-          navigate("/rosters");
-        } else {
-          navigate("/dashboard");
-        }
+        navigate("/dashboard");
       })
       .catch((error) => console.log(error));
   }

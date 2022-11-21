@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from 'react-router-dom';
 
-function ProtectedRoute({ loggedInUser, children }) {
-  if (!loggedInUser) {
+function ProtectedRoute({ adminUser, children }) {
+  if (!adminUser) {
     return <Navigate to="/login" />;
   }
 
