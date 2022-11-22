@@ -47,12 +47,12 @@ export default function NewRoster() {
     }
   }, [id, employees]);
 
-  function handleChange(event) {
-    setFormState({
-      ...formState,
-      [event.target.name]: event.target.value,
-    });
-  }
+  // function handleChange(event) {
+  //   setFormState({
+  //     ...formState,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // }
 
   function handleClick(event) {
     event.preventDefault();
