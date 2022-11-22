@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
-import { useGlobalState } from "../utils/stateContext";
 
 import {
   getRoster,
