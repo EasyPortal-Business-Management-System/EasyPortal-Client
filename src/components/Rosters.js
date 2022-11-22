@@ -42,8 +42,9 @@ function Rosters() {
           </>
       ):(
         <>
-        <Typography>
+        <Typography><h1>
           Please log in.
+        </h1>
         </Typography>
         </>
       )}

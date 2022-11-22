@@ -4,7 +4,7 @@ import { Box, Container, Typography } from "@mui/material";
 function Copyright() {
     return (
         <Typography variant="body2" color={"black"} align="center">
-            {"Copyright © EasyPortal "}
+            {"Copyright © EasyPortal"}
             {new Date().getFullYear()}
         </Typography>
     )

@@ -88,7 +88,8 @@ function App() {
             </>
           )}
           </Routes>
-          <Footer title={"Check weekly for roster updates!"}/>
+          <Footer title={"Check weekly for roster updates!"}
+          subtitle={"Contact manager with any concerns"}/>
     </StateContext.Provider>
   );
 }
