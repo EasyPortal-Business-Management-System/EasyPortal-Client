@@ -1,11 +1,11 @@
-import { React, useEffect, useState, useReducer } from 'react';
+import { React, useEffect, useReducer } from 'react';
 import About from "./components/About";
 import Rosters from './components/Rosters';
 import SimpleHome from "./components/SimpleHome";
 import Footer from "./components/Footer";
 import { Container } from "@mui/material";
 import Nav from "./components/Nav";
-import { Route, Routes, Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Register from "./components/Register";
 import LogIn from './components/LogIn';
@@ -15,7 +15,6 @@ import reducer from "./utils/stateReducer";
 import ThankYouPage from './components/ThankYou';
 import RosterDetails from "./components/RosterDetails";
 import NewRoster from './components/NewRoster';
-import { getLoggedInUser, getAdminUser } from './services/authServices';
 import { getRosters } from './services/rosterServices';
 import EmployeeDashboard from './components/EmployeeDashboard';
 
@@ -39,7 +38,7 @@ function App() {
   };
   const [store, dispatch] = useReducer(reducer, initialState);
 
-  const { loggedInUser, adminUser } = store;
+  const { loggedInUser } = store;
 
   useEffect(() => {
     if (!loggedInUser) {

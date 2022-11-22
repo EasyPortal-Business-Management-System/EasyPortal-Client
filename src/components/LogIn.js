@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser, setAdminUser } from "../services/authServices";
+import { loginUser } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 import { Button } from "@mui/material";
 
