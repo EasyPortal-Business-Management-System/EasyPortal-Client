@@ -13,7 +13,7 @@ function RosterDetails() {
 
   let navigate = useNavigate();
   const { id } = useParams();
-  const {dispatch} = useGlobalState();
+  // const {dispatch} = useGlobalState();
 
   function handleDelete() {
     deleteRoster(id).then(() => {
