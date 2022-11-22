@@ -16,7 +16,7 @@ function Nav(props) {
                 align="center"
                 noWrap
                 sx={{ flex: 1 }}>
-                   <Link to="/">{title}</Link> 
+                   <Link to="/" data-testid="navTitle">{title}</Link> 
                 </Typography>
             </Toolbar>
             <Toolbar

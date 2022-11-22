@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getRosters } from "../services/rosterServices";
 import { useEffect } from "react";
 
+
 function Rosters() {
   let navigate = useNavigate();
 
@@ -30,8 +31,8 @@ function Rosters() {
       <Typography><h2>Click on employee name to make changes</h2></Typography>
       {employees.map((employee, index) => {
             return (
-              <Link key={employee.id} to={`/rosters/${employee.id}`}>
-                <Typography>{employee.displayName}</Typography>
+              <Link key={employee._id} to={`/rosters/${employee._id}`}>
+                <Typography>{employees._id}</Typography>
               </Link>
             );
           })}

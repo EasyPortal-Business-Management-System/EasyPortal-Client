@@ -8,6 +8,7 @@ export default function LogIn() {
   const initialFormState = {
     email: "",
     password: "",
+    userMessage: "",
   };
 
   const [formState, setFormState] = useState(initialFormState);
@@ -22,9 +23,29 @@ export default function LogIn() {
     });
   }
 
+  function setUserMessage(userMessage) {
+    dispatch({
+      type: "setUserMessage",
+      data: userMessage,
+    });
+    console.log(userMessage);
+  }
+
+  function isValidEmail(email) {
+    if (email != null) return /\S+@\S+\.\S+/.test(email);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-
+    if (formState.email.length === 0) {
+      setUserMessage("Email must be provided");
+      console.log(formState.email);
+    } else if (!isValidEmail(formState.email)) {
+      setUserMessage("Please check the email typed in, something is wrong.");
+      console.log(formState.email);
+    } else if (formState.password.length === 0) {
+      setUserMessage("Password must be provided.");
+    } else {
     loginUser(formState)
       .then((data) => {
         let displayName = data.displayName;
@@ -37,18 +58,21 @@ export default function LogIn() {
         navigate("/dashboard");
       })
       .catch((error) => console.log(error));
+      // when formState has error
+      setUserMessage("Incorrect Log In Details");
+    }
   }
   return (
     <div>
       <label>Email:</label>
-      <input
+      <input data-testid="userEmail"
         type="email"
         name="email"
         value={formState.email}
         onChange={handleChange}
       ></input>
       <label>Password:</label>
-      <input
+      <input data-testid="password"
         type="password"
         name="password"
         value={formState.password}
