@@ -23,10 +23,10 @@ export default function reducer (state, action) {
         }
 
         case 'updateRoster': {
-            const roster = state.rosters.find((roster) => roster.id == action.data.id)
+            const roster = state.rosters.find((roster) => roster.id === action.data.id)
             const updatedRoster = Object.assign(roster, action.data)
 
-            const otherRosters = state.predictions.filter((roster) => roster.id != action.data.id)
+            const otherRosters = state.predictions.filter((roster) => roster.id !== action.data.id)
             return {
                 ...state,
                 rosters: [updatedRoster, ...otherRosters]
