@@ -6,7 +6,7 @@ import { useGlobalState } from "../utils/stateContext";
 export default function LogInBar() {
   let navigate = useNavigate();
   const {store, dispatch} = useGlobalState();
-  const {loggedInUser} = store;
+  const {loggedInUser} = store ;
 
   function handleLogout(event) {
     event.preventDefault();
@@ -26,7 +26,7 @@ export default function LogInBar() {
         </>
       ) : (
         <>
-          <Button onClick={() => navigate("/login")}>Login</Button>
+          <Button data-testid="loginbutton" onClick={() => navigate("/login")}>Login</Button>
           <Button onClick={() => navigate("/register")}>Register</Button>
         </>
       )}

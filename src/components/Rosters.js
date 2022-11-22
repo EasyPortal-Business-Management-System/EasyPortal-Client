@@ -3,35 +3,36 @@ import { useGlobalState } from "../utils/stateContext";
 import { Link, useNavigate } from "react-router-dom";
 import { getRosters } from "../services/rosterServices";
 import { useEffect } from "react";
-import { employees } from "../services/rosterServices";
+
 
 function Rosters() {
   let navigate = useNavigate();
+
   const { store, dispatch } = useGlobalState();
-  const { adminUser } = store;
+  const { loggedInUser, employees } = store;
 
   useEffect(() => {
-    if (!adminUser) {
+    if (!loggedInUser) {
       return;
     }
-
-getRosters()
-  .then((employees) =>
-    dispatch({ type: "setRosters", data: employees })
+    
+    getRosters()
+    .then((employees) =>
+      dispatch({ type: "setEmployees", data: employees})
     )
     .catch((error) => console.log(error));
-  }, [adminUser, dispatch]);
+  }, [loggedInUser, dispatch]);
 
   return(
     <div>
-      {adminUser ? (
+      {loggedInUser ? (
         <>
       <Typography><h1>Employee Roster List</h1></Typography>
       <Typography><h2>Click on employee name to make changes</h2></Typography>
       {employees.map((employee, index) => {
             return (
-              <Link key={employee.id} to={`/rosters/${employee.id}`}>
-                <Typography>{employee.name}</Typography>
+              <Link key={employee._id} to={`/rosters/${employee._id}`}>
+                <Typography>{employees._id}</Typography>
               </Link>
             );
           })}
@@ -41,8 +42,9 @@ getRosters()
           </>
       ):(
         <>
-        <Typography>
+        <Typography><h1>
           Please log in.
+        </h1>
         </Typography>
         </>
       )}

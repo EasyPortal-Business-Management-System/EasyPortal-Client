@@ -3,7 +3,6 @@ import { useGlobalState } from "../utils/stateContext";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  createRoster,
   updateRoster,
   getRoster,
 } from "../services/rosterServices";
@@ -64,17 +63,10 @@ export default function NewRoster() {
             type: "updateRoster",
             data: { id: id, ...formState },
           });
-          navigate(`/rosters/${id}`);
+          navigate(`/employees/${id}`);
         })
         .catch((error) => console.log(error));
-    } else {
-      createRoster({ ...formState })
-        .then((roster) => {
-          dispatch({ type: "addRoster", data: roster });
-          navigate("/rosters/new");
-        })
-        .catch((error) => console.log(error));
-    }
+      }
   }
 
   return (
@@ -115,7 +107,7 @@ export default function NewRoster() {
         type="text"
         name="sunday"
       ></input>
-      <Button onClick={handleClick}>{id ? "Update" : "Create"}</Button>
+      <Button onClick={handleClick}>Update</Button>
     </div>
   );
 }
