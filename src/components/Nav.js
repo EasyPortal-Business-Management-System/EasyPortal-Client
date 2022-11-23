@@ -6,7 +6,7 @@ import "../App.scss";
 function Nav(props) {
     const {title, sections} = props;
     return(
-        <React.Fragment className="main">
+        <React.Fragment>
             <Toolbar sx={{borderBottom: 4, borderColor: 'divider'}}>
                 <Typography
                 components="h2"

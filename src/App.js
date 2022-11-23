@@ -56,7 +56,7 @@ function App() {
   // Use ternery to operate loading page and main page
   return (
     <StateContext.Provider value={{ store, dispatch }}>
-      <Container className="ep" maxWidth='lg'>
+      <Container maxWidth='lg'>
           <LogInBar />
           <Nav title="EasyPortal"
           sections={sections}>
