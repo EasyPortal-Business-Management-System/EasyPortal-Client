@@ -22,13 +22,13 @@ export default function LogInBar() {
     <Box display="flex" justifyContent="space-around" width="100%">
       {loggedInUser ? (
         <>
-          <Typography m={2}>Hi {loggedInUser}</Typography>
+          <Typography m={2}><h4 name="loggedin" ></h4>Hi {loggedInUser}</Typography>
           <Button variant="contained" onClick={handleLogout}>Logout</Button>
         </>
       ) : (
         <>
-          <Button variant="contained" data-testid="loginbutton" onClick={() => navigate("/login")}>Login</Button>
-          <Button variant="contained" onClick={() => navigate("/register")}>Register</Button>
+          <Button className="sign-in-button" variant="contained" data-testid="loginbutton" onClick={() => navigate("/login")}>Login</Button>
+          <Button className="logout-button" variant="contained" onClick={() => navigate("/register")}>Register</Button>
         </>
       )}
     </Box>

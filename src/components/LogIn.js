@@ -46,9 +46,11 @@ export default function LogIn() {
     <>
     <Box sx={{fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'
       }}>
+      <label className="sign-in">Log In</label>
       <label>Email:</label>
       <br></br>
       <input
+        className="email"
         type="email"
         name="email"
         value={formState.email}
@@ -58,6 +60,7 @@ export default function LogIn() {
       <label>Password:</label>
       <br></br>
       <input
+        className="password"
         type="password"
         name="password"
         value={formState.password}

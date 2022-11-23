@@ -1,15 +1,10 @@
-const { clear } = require("@testing-library/user-event/dist/clear");
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: 'd9u4he',
   e2e: {
-    baseUrl: "http://localhost:3000",
-  },
-
-  component: {
-    devServer: {
-      framework: "create-react-app",
-      bundler: "webpack",
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
     },
   },
 });
