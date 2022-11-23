@@ -51,18 +51,23 @@ Client:
 - [Description](#description)
 - [Functionality and Features](#functionality-and-features)
 - [Tech Stack](#tech-stack)
-- [Libraries and Dependencies](#libraries)
+- [Libraries and Dependencies](#libraries-and-dependencies)
 - [API Endpoints](#api-endpoints)
 - [Testing](#testing)
 - [Screenshots](#screenshots)
-- [User Stories and Client Interaction](#user-stories)
-- [Project Management and Task Delegation](#project-management)
-    -[Project Retrospective](#retrospective)
+- [User Stories and Client Interaction](#user-stories-and-client-interaction)
+- [Project Management and Task Delegation](#project-management-and-task-delegation)
+    - [Project Retrospective](#project-retrospective)
 
 <br>
 <br>
 
 ## Description
+EasyPortal is designed as an employee and employer portal, allowing for an easy-to-use and fun experience for all things business management. It's core focus is on the ability to handle rosters for employees and has the scope to expand to communicating pay information, leave requests or even performance reviews. 
+
+It was created in response to an issue facing our client, Darren, a small business owner with a gym. At present, he currently has a whiteboard in the office of the gym where he writes up the employee shifts for the week. This means that in order for an employee to know their shifts for the week, they need to remember to check the board whilst on site or call to find out. This has resulted in a number of miscommunications and days where the gym has been short staffed. 
+
+As a small business, he is the sole owner and only employs a part-time bookkeeper to process the payroll, meaning that most employee questions about pay details also fall to him. Since there are full-time, part-time and casual employees at the business, it ends up being a lot of information to keep on top of. All of this means that Darren spends a lot of his time on business administration instead of in the gym with clients, which is what he really loves. EasyPortal was planned and developed to respond to this issue and provide a fun, interactive alternative to existing similar softwares. It was also designed with a small business structure being considered, keeping the software small and light to start with, with the ability to scale up and add more features in the future. 
 
 
 <br>
@@ -71,7 +76,7 @@ Client:
 - Employee log in to view own roster and pay information
 - Employer log in to view employee register and roster information
 - Roster employees
-- Access to employee register and overview (For employer login)
+- Access to employee register and overview (for employer login)
 
 ***The following features were originally planned to be implemented (see Part A) but ended up being put aside in order to prioritise the primary focus of the rosters.*** 
 - ‘At a glance’ graphics for employees
@@ -171,12 +176,29 @@ Manual test logs: http://bit.ly/3AEP82H
 
 ## Screenshots
 
+Below are some screenshots of the deployed application. The styling has been kept quite minimal for ease of use, but will be built on in the future to better represent an interactive and fun platform. The colours were used in order to push back against the 'management systems are boring' sentiment and to create a point of interest. <br> The orange shade: #fc8403 <br> The blue shade: #05409e
+<br>
+EasyPortal Home Page: this is visible to all users
+![EasyPortal Home Page](./docs/EasyPortal_Homepage_Screenshot.png)
+<br>
+EasyPortal NotFound Page: site will redirect to this for unrecognised URL paths or when a non authenticated user tries to used a restricted section of the site
+![EasyPortal NotFound Page](./docs//NotFoundPage_Screenshot.png)
+<br>
+EasyPortal Log In Page: this is visible once you click on the log in button, or when linked through from the Not Found page
+![EasyPortal LogIn Page](./docs/LogInPage_Screenshot.png)
+<br>
+EasyPortal Register Page: this is visible once you click on the register button 
+![EasyPortal Register Page](./docs/RegisterPage_Screenshot.png)
+<br>
+EasyPortal Logged In User Rosters View Page: this page is only accessible to logged in users, as discussed, this is not fully functional at present, but is planned to be resolved as soon as possible
+![EasyPortal LoggedInUser RostersView Page](./docs/LoggedInUser_RostersView_Screenshot.png)
+
 <br>
 
 ## User Stories and Client Interaction
 The user stories below are focused on the needs and experiences of the employees and employers who would be using the EasyPortal application. In the Part A documentation, a more extensive list can be found, whereas the stories below better reflect the final production of the application. 
 
-We will discuss this further in the project retrospective, but at this stage the deployed application is not at the functinoality we wanted to deliver to the client. We have been in communication with the client to update them on the current status and are discussing future options. 
+We will discuss this further in the project retrospective, but at this stage the deployed application is not at the functionality we wanted to deliver to the client. We have been in communication with the client to update them on the current status and are discussing future options. 
 
 #### Employee:
 - As an employee, I want to be able to easily check my roster without having to go into my workplace.
@@ -219,7 +241,9 @@ We will discuss this further in the project retrospective, but at this stage the
 <br>
 
 ## Project Management and Task Delegation
-The team focused on having a strong and straight forward development plan with clear management of the project. Sprint one of the project was the intial planning stage and the end was marked with the submission of the Part A documentation. Part of this planning process included creating a comprehensive Trello board and clear plan for task delegation. The tasks were broken down into the Client and Server buckets, with the vital components of each separated out into smaller action cards. Due dates were then assigned to each card based on what was considered most important to do first, or what might take the most time. Allocation was fairly straightforward, with each team member taking responsiblity for one side of the project. 
+The team focused on having a strong and straight forward development plan with clear management of the project. Sprint one of the project was the intial planning stage and the end was marked with the submission of the Part A documentation. Part of this planning process included creating a comprehensive Trello board and clear plan for task delegation. The tasks were broken down into the Client and Server buckets, with the vital components of each separated out into smaller action cards. Due dates were then assigned to each card based on what was considered most important to do first, or what might take the most time. Allocation was fairly straightforward, with each team member taking responsiblity for one side of the project. Labels were also used for each card so that it was clear whether the task was associated with the client or server side of the application, as well as the suspected difficulty of the task. 
+
+Each task was allocated an 'Easy', 'Moderate' or 'Difficult' label in order to help prioritise during each stand up. Over the course of the project, some tasks were reallocated a new difficulty if it ended up being a more time-consuming piece of work or required additional imput or support from the other team member. 
 
 We decided to use the remaining three weeks of the timeline as the outline for three major sprints to the end of the project. Main working days were decided as the Monday, Tuesday and Wednesday of each week, with a morning stand up and afternoon check in. Both of these allowed for the opprtunity to review the Trello board, set the task or tasks for the day and discuss any areas of particular difficulty. 
 
@@ -247,8 +271,25 @@ Alongside the project management, the team discussed how the workflow would be b
 ![Gitflow Workflow](./docs/Gitflow_Workflow_Diagram.jpg)
 
 ### Project Retrospective
+Overall, Morgan and Timotius are proud of what they have created but disappointed that they have not delivered full functionality at this time. They believe they have worked well as a team throughout the project timeline and had a well thought out development plan, but executing this ended up being more difficult than originally anticipated. It appears that the remaining issues lie with processing the data response from the API within the front end, so Morgan (who was in charge of that section) in particular is discouraged that it is not yet functional. 
 
-Overall, the development team are proud of what they have created but disappointed that we have not delivered full functionality at this time. As discussed, we have been in discussion with the client and have set a revised delivery date of 8th December for the core rosters functionality. 
+As discussed, we have been in contact with the client to do a progress report and negotiate how to best move forward with the current functionality. The client made the decision to remove some of the functions originally discussed in the Part A documentation and instead focus on the core rostering abilities. They have tested the site as it is currently deployed and have agreed to use it as an 'alpha version' which they will also share with their employees to provide further feedback and allow for changes to be included in a 'beta version'. This 'beta version' will have the implemented authentication in addition to the ability to add, view, edit and delete roster information attached to the user profile. The revised delivery date will be December 9th, in order to start using the application in the real world environment before the busy season starts for the gym (Christmas and New Years period). We are grateful that we have an understanding client who has been active in the development process so far and wants to continue in the right direction with us. 
+
+As developers, we recognise that this is not an ideal scenario, however we have also put a lot of time and effort into getting the application to this point and have identified areas in particular that caused challenges or provided learnings. We hope that by analysing this project and doing this retrospective, we will become better developers for the future. 
+
+##### Challenges
+- The initial front end build ended up being a 'cart before the horse' situation, where the base elements weren't rendering correctly. The solution ended up being to strip the code back down and build back up, checking that each section and component were rendering before moving on. Unfortunately, this was also time-consuming and had a knock on effect later on in the project.
+- The interactions between Firebase and MongoDB for handling users and employees in the system ended up being more complex than originally anticipated and took some time to resolve. 
+- The API connections between the front and back end were quite time consuming and required a number of coding sessions over Discord to resolve. 
+- The MERN structure for the full stack app was our preferred method but also provided challenges of its own. Whilst we felt comfortable embarking on the project using this tech stack, the reality was more difficult and pointed out the gaps in our knowledge. This resulted in a lot of content review and research, which was time-consuming during the project but ultimately has given us a better understanding. 
+
+##### Learnings
+- Communication is key; but good communication looks different to everyone. We all communicate and work in our own way, so part of the learning process was understanding how each of us preferred to work and develop over time. Being able to work in a team and with other developers is such a key part of any project and we definitely felt that we learned a lot of new skills in this area.  
+- Asking for help when you need it is important; there were some times throughout the development where a particular task resulted in being a blocker to moving forward and for the most part we tried to just resolve it ourselves. As new developers, we have learnt that it's important to recognise our limitations and put a hand up as soon as you feel out of your depth. Whilst this can be a good opportunity to learn and problem solve, it's also important not to waste time if we do need outside help. 
+- The MERN structure! Whilst the application is not as complete as originally intended, we definitely learned a lot about how to work with MERN throughout this project and both feel more confident to work with it in the future. 
+
+##### Next Steps
+- Now that we have communicated with the client and established that they do want to continue with implementing the project, we will take a day to revise the development plan and identify the specific tasks ahead and how to best implement those. For the most part, the components of the application are built but the handling of the response data needs to be managed better in the front end.  
 
 ### Bibliography
 Atlassian (no date) Gitflow workflow: Atlassian Git Tutorial, Atlassian. Available at: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow (Accessed: November 4, 2022). 
