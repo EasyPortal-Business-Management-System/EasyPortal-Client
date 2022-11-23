@@ -4,7 +4,9 @@ import { loginUser } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 import { Button, Box } from "@mui/material";
 
+// LogIn route will be navigated to from the LogInBar
 export default function LogIn() {
+  // Establish initial form with empty fields for input
   const initialFormState = {
     email: "",
     password: "",

@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.scss";
 
+// About page that can be access by any authenticated or non-authenticated user
 const About = () => {
     return(
         <section className="main" id="about">

@@ -1,6 +1,9 @@
 import React from "react";
 import "../App.scss";
 
+// This will provide the simple homepage and act as a landing page for the site
+// An image of a portal, along with the message prompting users to log in will be visible
+
 const Home = () => {
     return (
         <section id="home" className="ep">

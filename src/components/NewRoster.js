@@ -8,6 +8,9 @@ import {
 } from "../services/rosterServices";
 import "../App.scss";
 
+// Function for creating a new employee roster, will be accessible from the Rosters.js page 
+// and only visible to admin users to make changes
+
 export default function NewRoster() {
   const initialFormState = {
     employee_id: 1,
@@ -63,6 +66,8 @@ export default function NewRoster() {
       }
   }
 
+    // Each key will have it's own input field and if a person is not to be rostered on for a day, 
+    // or even several days, the field will be left blank and the key updated with an empty string
   return (
     <div className="main">
       <Typography>Employee:</Typography>

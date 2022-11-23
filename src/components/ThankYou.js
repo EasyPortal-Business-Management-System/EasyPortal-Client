@@ -1,6 +1,8 @@
 import React from "react";
 import "../App.scss";
 
+// A simple thank you page component that will be returned one a user has completed their log out
+
 const ThankYouPage = () => {
     return(
         <section className="main" id="thankyou">

@@ -5,6 +5,11 @@ import { getRosters } from "../services/rosterServices";
 import { useEffect } from "react";
 import "../App.scss";
 
+// Essentially the admin dashboard component
+// A signed in admin user will be able to view the full list of register employees
+// All the items in this list will be clickable links that then open the assocaited roster details for that employee
+// This component will have the 'Add Roster' button for admin user and will display a 'please log in'
+// message for any employee users
 
 function Rosters() {
   let navigate = useNavigate();

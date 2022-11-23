@@ -1,6 +1,8 @@
 import { Typography } from "@mui/material";
 import "../App.scss";
 
+// Employee dashboard, to render specific employee information based on their log in with the user id
+// Will be wrapped in the authentication ternary in App.js so that non-authenticated users have no access to personal information
 function EmployeeDashboard() {
   return (
     <div className="main">

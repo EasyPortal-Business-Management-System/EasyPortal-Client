@@ -3,6 +3,8 @@ import { Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import "../App.scss";
 
+// Simple navigation bar that will allow for the addition of further sections in the expansion of the application
+// maps over the 'sections' array created in the App.js file
 function Nav(props) {
     const {title, sections} = props;
     return(

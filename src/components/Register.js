@@ -4,6 +4,9 @@ import { registerUser } from "../services/authServices";
 import { useState } from "react";
 import { useGlobalState } from "../utils/stateContext";
 
+// The register form is used when a user clicks on the register button in the LogInBar component
+// The initial form state will be empty so that the user can enter their own details
+
 export default function Register() {
   const initialFormState = {
     displayName: "",
@@ -23,6 +26,9 @@ export default function Register() {
       [event.target.name]: event.target.value,
     });
   }
+
+  // Following the click of the register button, user will be register to the Firebase auth logs
+  // and then set as signed in and able to view the relevant information for their type of user (employee or admin)
 
   function handleRegister(event) {
     event.preventDefault();

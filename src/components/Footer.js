@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 
+// Simple footer element to show the copyright and a message reminder to regularly check rosters
 function Copyright() {
     return (
         <Typography variant="body2" color={"black"} align="center">

@@ -3,6 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 import "../App.scss";
 
+// Each employee name on the Rosters component will be a clickable link that navigates to display
+// the associated information in the format below. It will simply print the information for that employee and have 
+// edit and delete buttons, only visible to the admin user, who can then use them to perform those functions
+
 import {
   getRoster,
   deleteRoster
