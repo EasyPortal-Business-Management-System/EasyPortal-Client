@@ -3,13 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
 import { Button, Box } from "@mui/material";
-import "../App.scss";
 
 export default function LogIn() {
   const initialFormState = {
     email: "",
     password: "",
-    userMessage: "",
   };
 
   const [formState, setFormState] = useState(initialFormState);
@@ -24,29 +22,9 @@ export default function LogIn() {
     });
   }
 
-  function setUserMessage(userMessage) {
-    dispatch({
-      type: "setUserMessage",
-      data: userMessage,
-    });
-    console.log(userMessage);
-  }
-
-  function isValidEmail(email) {
-    if (email != null) return /\S+@\S+\.\S+/.test(email);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
-    if (formState.email.length === 0) {
-      setUserMessage("Email must be provided");
-      console.log(formState.email);
-    } else if (!isValidEmail(formState.email)) {
-      setUserMessage("Please check the email typed in, something is wrong.");
-      console.log(formState.email);
-    } else if (formState.password.length === 0) {
-      setUserMessage("Password must be provided.");
-    } else {
+
     loginUser(formState)
       .then((data) => {
         let displayName = data.displayName;
@@ -56,38 +34,38 @@ export default function LogIn() {
         dispatch({ type: "setLoggedInUser", data: displayName });
         dispatch({ type: "setAdminUser", data: displayName})
         dispatch({ type: "setToken", data: token });
-        navigate("/dashboard");
+        if ('adminUser') {
+          navigate("/rosters");
+        } else {
+          navigate("/dashboard");
+        }
       })
       .catch((error) => console.log(error));
-      // when formState has error
-      setUserMessage("Incorrect Log In Details");
-    }
   }
   return (
     <>
-    <Box sx={{ fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'}}>
-    <label>Email:</label>
+    <Box sx={{fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'
+      }}>
+      <label>Email:</label>
       <br></br>
-      <input data-testid="userEmail"
+      <input
         type="email"
         name="email"
         value={formState.email}
         onChange={handleChange}
       ></input>
       <br></br>
-    </Box>
-    <Box sx={{ fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'}}>
-    <label>Password:</label>
+      <label>Password:</label>
       <br></br>
-      <input data-testid="password"
+      <input
         type="password"
         name="password"
         value={formState.password}
         onChange={handleChange}
       ></input>
       <br></br>
-      <Button sx={{ textAlign: 'center'}} onClick={handleSubmit}>Login</Button>
-    </Box>      
+      <Button onClick={handleSubmit}>Login</Button>
+      </Box>
       </>
   );
 }
