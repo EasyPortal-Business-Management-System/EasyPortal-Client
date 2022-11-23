@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Define an API
 const easyportalAPI = axios.create({
-    baseURL: "https://easyportal-heroku.herokuapp.com/"
+    baseURL: "https://easyportal-heroku.herokuapp.com/" || "http://localhost:55000"
     // baseURL: 'http://localhost:55000/'
 })
 

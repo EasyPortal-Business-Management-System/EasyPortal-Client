@@ -6,7 +6,11 @@ Timotius Mogot ([Github](https://github.com/Sky12072))
 <br> Morgan Rohan ([Github](https://github.com/MorganRohan))
 
 ## Important Links
-Deployed App: 
+Deployed frontend and backend urls:
+
+Front-end React: https://www.easyportal-businessmanagement.com/
+
+Back-end Expressjs: https://easyportal-heroku.herokuapp.com/
 
 Client Repository: https://github.com/EasyPortal-Business-Management-System/EasyPortal-Client 
 
@@ -159,11 +163,9 @@ Client:
 ## Testing 
 The application has been tested locally in Chrome and Safari on Mac OS Ventura 13.0.0.
 
-The development and production applications have both been tested manually through Postman, along with Jest and Cypress.
+The development and production applications have both been tested manually through Postman, along with Jest and Cypress. The test files can be found and run from the respective repositories for each side of the project. 
 
 Manual test logs: http://bit.ly/3AEP82H 
-
-Examples of server Postman testing and findings: 
 
 <br>
 
@@ -224,21 +226,29 @@ We decided to use the remaining three weeks of the timeline as the outline for t
 Trello was used as the main method of tracking tasks and team member delegation, with Discord being used as the main form of communication. All of the screenshots from the working day catch ups can be found [here](./docs/Trello_screenshots/). 
 
 #### Sprint 1
-Following the planning covered in Part A, the first sprint focused on covering the ground work of the code and building a skeleton front end and back end to build on in the later sprints. This meant focusing on setting up MongoDB and Firebase for the back end, as well as the base components in React for the front end.  
+Following the planning covered in Part A, the first sprint focused on covering the ground work of the code and building a skeleton front end and back end to build on in the later sprints. This meant focusing on setting up MongoDB and Firebase for the back end, as well as the base components in React for the front end.
+
+![Sprint 1 Trello Board](./docs/Trello_screenshots/Monday_AM_Trello_screenshot_7-11.png)
 
 #### Sprint 2
 The second sprint focused on building the front end to include the components needed for the application features, as well as establishing authorisation. Back end deployment was also a focus, in order to try and provide an easier front end development environment. Manual unit testing was used in this sprint to help determine which components within both the front and back end were working before moving on. 
+
+![Sprint 2 Trello Board](./docs/Trello_screenshots/Tuesday_AM_Trello_screenshot_15-11.png)
 
 #### Sprint 3
 The third and final sprint focused on implementing the CRUD functionality required for managing the roster and employee information. Whilst the front end components were built and mostly working using the dummy data, configuring the API and services to connect to the server proved to be quite a blocker for the team. It was identified that the interaction between MongoDB and Firebase was more difficult than anticipated and required refactoring the functions and routes to correctly attach the data to the users. Calling this data to the front end to then manipulate ended up being a large issue for the application and at the beginning of the sprint, it was decided to drop the other functionalities in order to solely focus on this working. 
 
 Unfortunately at time of deployment, the roster system in the  application is not fully functional. As a team, we were disappointed that we were unable to get this working within the timeline and deliver it to the client as expected. In the spirit of honesty, the team contacted the client halfway through the sprint and presented a progress report to demonstrate how the application was working. We will discuss the outcome of this in the retrospective section below. 
 
+![Sprint 3 Final Trello Board](./docs/Trello_screenshots/Final_Trello_Screenshot_PM_23-11.png)
+
 Alongside the project management, the team discussed how the workflow would be best used in order to manage changes from each collaborator. For this it was decided that a Gitflow workflow would work best for the team and kanban methodology of the project. This involved establishing a central repository with the main branch (deployed version of the application), development branch (for a working or staging version of the application) and feature branchs for each new feature or function of the application. We decided on this in order to best suit the division of workload within the project and to minimise merge conflicts. The diagram below shows an example of how the workflow was used for the project:
 <br>
 ![Gitflow Workflow](./docs/Gitflow_Workflow_Diagram.jpg)
 
 ### Project Retrospective
+
+Overall, the development team are proud of what they have created but disappointed that we have not delivered full functionality at this time. As discussed, we have been in discussion with the client and have set a revised delivery date of 8th December for the core rosters functionality. 
 
 ### Bibliography
 Atlassian (no date) Gitflow workflow: Atlassian Git Tutorial, Atlassian. Available at: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow (Accessed: November 4, 2022). 
