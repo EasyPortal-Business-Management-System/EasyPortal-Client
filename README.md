@@ -46,6 +46,7 @@ Client:
 - A new browser window should open, with the client running on http://localhost:3000/
 - Check that the server is connected at http://localhost:55000/
 - Enter the portal!
+- You can use any email address to register as a new user, or use production1@admin.com, production2@admin.com, production3@admin.com, production4@admin.com or production5@admin.com to register as a new admin user.
 
 ## Contents:
 - [Description](#description)
