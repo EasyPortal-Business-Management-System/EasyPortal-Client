@@ -39,40 +39,44 @@ export default function Register() {
 
   return (
     <>
-      <Box>
+      <Box sx={{fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'
+      }}>
         <label>Name:</label>
+        <br></br>
         <input
           type="text"
           name="displayName"
           value={formState.displayName}
           onChange={handleChange}
         ></input>
-
+        <br></br>
         <label>Email:</label>
+        <br></br>
         <input
           type="text"
           name="email"
           value={formState.email}
           onChange={handleChange}
         ></input>
-      </Box>
-
-      <Box>
+        <br></br>
         <label>Password:</label>
+        <br></br>
         <input
           type="password"
           name="password"
           value={formState.password}
           onChange={handleChange}
         ></input>
-
+        <br></br>
         <label>Password Confirmation:</label>
+        <br></br>
         <input
           type="password"
           name="password_confirmation"
           value={formState.password_confirmation}
           onChange={handleChange}
         ></input>
+        <br></br>
         <Button onClick={handleRegister}>Register</Button>
       </Box>
     </>

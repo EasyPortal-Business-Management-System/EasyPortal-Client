@@ -1,11 +1,12 @@
 import React from "react";
+import "../App.scss";
 
 const Home = () => {
     return (
-        <section id="home">
+        <section id="home" className="ep">
             <div>
-                <h1>Log in to enter the portal</h1>
-                <img src="../images/entertheportal.jpg" alt="door opening" height={600} width={1100}></img>
+                <h1>Log in to enter the portal...</h1>
+                <img src="../images/entertheportal.jpg" alt="door opening" height={600} width="100%"></img>
             </div>
         </section>
     )

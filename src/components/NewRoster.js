@@ -6,6 +6,7 @@ import {
   updateRoster,
   getRoster,
 } from "../services/rosterServices";
+import "../App.scss";
 
 export default function NewRoster() {
   const initialFormState = {
@@ -47,13 +48,6 @@ export default function NewRoster() {
     }
   }, [id, employees]);
 
-  // function handleChange(event) {
-  //   setFormState({
-  //     ...formState,
-  //     [event.target.name]: event.target.value,
-  //   });
-  // }
-
   function handleClick(event) {
     event.preventDefault();
     if (id) {
@@ -70,7 +64,7 @@ export default function NewRoster() {
   }
 
   return (
-    <div>
+    <div className="main">
       <Typography>Employee:</Typography>
       <Typography>Monday:</Typography>
       <input

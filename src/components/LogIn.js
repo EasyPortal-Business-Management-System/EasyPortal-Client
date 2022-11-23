@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/authServices";
 import { useGlobalState } from "../utils/stateContext";
-import { Button } from "@mui/material";
+import { Button, Box } from "@mui/material";
+import "../App.scss";
 
 export default function LogIn() {
   const initialFormState = {
@@ -63,22 +64,30 @@ export default function LogIn() {
     }
   }
   return (
-    <div>
-      <label>Email:</label>
+    <>
+    <Box sx={{ fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'}}>
+    <label>Email:</label>
+      <br></br>
       <input data-testid="userEmail"
         type="email"
         name="email"
         value={formState.email}
         onChange={handleChange}
       ></input>
-      <label>Password:</label>
+      <br></br>
+    </Box>
+    <Box sx={{ fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'}}>
+    <label>Password:</label>
+      <br></br>
       <input data-testid="password"
         type="password"
         name="password"
         value={formState.password}
         onChange={handleChange}
       ></input>
-      <Button onClick={handleSubmit}>Login</Button>
-    </div>
+      <br></br>
+      <Button sx={{ textAlign: 'center'}} onClick={handleSubmit}>Login</Button>
+    </Box>      
+      </>
   );
 }

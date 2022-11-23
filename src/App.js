@@ -17,6 +17,7 @@ import RosterDetails from "./components/RosterDetails";
 import NewRoster from './components/NewRoster';
 import { getRosters } from './services/rosterServices';
 import EmployeeDashboard from './components/EmployeeDashboard';
+import './App.scss';
 
 const sections = [
   {
@@ -55,7 +56,7 @@ function App() {
   // Use ternery to operate loading page and main page
   return (
     <StateContext.Provider value={{ store, dispatch }}>
-      <Container maxWidth='lg'>
+      <Container className="ep" maxWidth='lg'>
           <LogInBar />
           <Nav title="EasyPortal"
           sections={sections}>

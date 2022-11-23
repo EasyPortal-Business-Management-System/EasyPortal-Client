@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
+import "../App.scss";
 
 import {
   getRoster,
@@ -30,7 +31,7 @@ function RosterDetails() {
   if (!employee) return null;
 
   return (
-    <div>
+    <div className="main">
       <Typography><h1>Edit employee roster below</h1></Typography>
       <Typography><h4>Click 'update' to submit changes or 'delete' to delete the roster</h4></Typography>
       <p>Employee: {employee.name}</p>

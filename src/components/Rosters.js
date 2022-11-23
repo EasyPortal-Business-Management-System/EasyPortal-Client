@@ -3,6 +3,7 @@ import { useGlobalState } from "../utils/stateContext";
 import { Link, useNavigate } from "react-router-dom";
 import { getRosters } from "../services/rosterServices";
 import { useEffect } from "react";
+import "../App.scss";
 
 
 function Rosters() {
@@ -24,7 +25,7 @@ function Rosters() {
   }, [loggedInUser, dispatch]);
 
   return(
-    <div>
+    <div className="main">
       {loggedInUser ? (
         <>
       <Typography><h1>Employee Roster List</h1></Typography>
@@ -32,7 +33,7 @@ function Rosters() {
       {employees.map((employee, index) => {
             return (
               <Link key={employee._id} to={`/rosters/${employee._id}`}>
-                <Typography>{employees._id}</Typography>
+                <Typography>{employee._id}</Typography>
               </Link>
             );
           })}
