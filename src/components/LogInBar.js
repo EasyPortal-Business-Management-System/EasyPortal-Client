@@ -27,7 +27,7 @@ export default function LogInBar() {
     <Box display="flex" justifyContent="space-around" width="100%">
       {loggedInUser ? (
         <>
-          <Typography m={2}><h4 name="loggedin" ></h4>Hi {loggedInUser}</Typography>
+          <Typography m={2}><h4 name="loggedin" >Hi {loggedInUser}</h4></Typography>
           <Button variant="contained" onClick={handleLogout}>Logout</Button>
         </>
       ) : (

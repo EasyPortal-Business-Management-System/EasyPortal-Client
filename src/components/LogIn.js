@@ -48,7 +48,7 @@ export default function LogIn() {
     <>
     <Box sx={{fontFamily: 'default', textAlign: 'center', textTransform: 'uppercase'
       }}>
-      <label className="sign-in">Log In</label>
+      <h2 className="sign-in">Log In</h2>
       <label>Email:</label>
       <br></br>
       <input
